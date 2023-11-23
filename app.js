@@ -1,11 +1,18 @@
 const express = require("express");
-const app = express();
 const port = 3000;
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+const app = express();
+app.set("view engine", "ejs");
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+app.get("/", index);
+app.get("/index", index);
+async function index(req, res) {
+  res.render("index", {
+    subject: "EJS template template engine",
+    name: "our template",
+    link: "https://google.com",
+  });
+}
