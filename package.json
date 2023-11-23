@@ -5,7 +5,14 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js --ext ejs"
+    "dev": "nodemon app.js"
+  },
+  "nodemonConfig": {
+    "watch": "*",
+    "ignore": [
+      "**/node_modules/**"
+    ],
+    "ext": "*"
   },
   "author": "",
   "license": "ISC",
