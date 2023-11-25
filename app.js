@@ -1,4 +1,6 @@
-const express = require("express");
+import express from "express";
+import formidable from "formidable";
+
 const port = 3000;
 const app = express();
 app.use("/img", express.static("img"));
@@ -18,10 +20,28 @@ async function index(req, res) {
   });
 }
 
-app.get("/admin", (req, res) => {
-  res.render("admin/index.ejs", {
+app.get("/admin*", (req, res) => {
+  console.log(req.params);
+  console.log(req.url);
+  res.render(req.url.slice(1), {
     subject: "EJS template template engine",
     name: "our templated",
     link: "https://google.com",
+  });
+});
+
+app.post("/admin/panorama", (req, res) => {
+  const form = formidable({});
+
+  form.parse(req, (err, fields, files) => {
+    if (err) {
+      res.json({
+        error: err,
+        msg: "failed to upload file",
+      });
+      return;
+    }
+
+    res.json({ fields, files });
   });
 });
