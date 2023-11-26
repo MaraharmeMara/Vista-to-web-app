@@ -22,8 +22,6 @@ async function index(req, res) {
 }
 
 app.get("/admin*", async (req, res) => {
-  // console.log(req.params);
-  // console.log(req.url);
   console.log(await getPgVersion());
   res.render(req.url.slice(1), {
     subject: "EJS template template engine",

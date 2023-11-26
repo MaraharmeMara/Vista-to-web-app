@@ -2,11 +2,9 @@ import dotenv from "dotenv";
 import pg from "pg";
 const { Pool } = pg;
 dotenv.config();
+const { DATABASE_URL } = process.env;
 
-let { PGHOST, PG_PORT, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID, PG_URI } =
-  process.env;
-
-const pool = new Pool({ connectionString: PG_URI });
+const pool = new Pool({ connectionString: DATABASE_URL });
 
 export async function getPgVersion() {
   const result = await pool.query(`select version()`);
