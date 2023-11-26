@@ -37,7 +37,7 @@
           <% if (tours) { %> <% tours.forEach(element => { %>
           <li class="list-group-item">
             Name:<%=element.name%> <br />
-            File: <%=element.panorama_file%>
+            File: <img src="<%=element.panorama_file%>" alt="" />
           </li>
           <% }) %> <% } %>
         </ol>
