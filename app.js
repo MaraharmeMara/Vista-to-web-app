@@ -1,6 +1,6 @@
 import express from "express";
 import formidable from "formidable";
-import { getPgVersion } from "./db.js";
+import * as db from "./db.js";
 
 const port = 3000;
 const app = express();
@@ -21,8 +21,15 @@ async function index(req, res) {
   });
 }
 
-app.get("/admin*", async (req, res) => {
-  console.log(await getPgVersion());
+app.get("/admin", async (req, res) => {
+  const tours = await db.listTour();
+  console.dir(tours);
+  res.render(req.url.slice(1), {
+    tours: tours,
+  });
+});
+
+app.get("/admin/*", async (req, res) => {
   res.render(req.url.slice(1), {
     subject: "EJS template template engine",
     name: "our templated",
@@ -33,7 +40,7 @@ app.get("/admin*", async (req, res) => {
 app.post("/admin/panorama", (req, res) => {
   const form = formidable({});
 
-  form.parse(req, (err, fields, files) => {
+  form.parse(req, async (err, fields, files) => {
     if (err) {
       res.json({
         error: err,
@@ -42,6 +49,11 @@ app.post("/admin/panorama", (req, res) => {
       return;
     }
 
-    res.json({ fields, files });
+    const tour = await db.createTour(
+      fields.panoramaName[0],
+      files.panoramaFile[0].originalFilename
+    );
+
+    res.json({ fields, files, tour });
   });
 });
