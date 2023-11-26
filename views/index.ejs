@@ -28,12 +28,38 @@
       .custom-hotspot38 {
         background-image: url("/numbers/38.png");
       }
+      .custom-hotspot79 {
+        background-image: url("/numbers/79.png");
+      }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
   </head>
   <body>
     <div class="container-fluid pb-3">
       <h1>360 Panorama viewer test</h1>
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Check me out</label
+          >
+        </div>
+        <button type="submit" class="mb-3 btn btn-primary">Submit</button>
+      </form>
       <div id="panorama" style="width: 90vw; height: 90vh"></div>
     </div>
 
@@ -42,6 +68,7 @@
         type: "equirectangular",
         panorama: "http://localhost:3000/img/Keskusta Talvi.jpg",
         autoLoad: true,
+        autoRotate: -2,
         hotSpotDebug: true,
         hotSpots: [
           {
@@ -56,7 +83,7 @@
             pitch: -16.99802725077595,
             yaw: 41.4736407853587,
             type: "info",
-            cssClass: "custom-hotspot custom-hotspot38",
+            cssClass: "custom-hotspot",
             text: "S-Market",
             URL: "https://www.s-kaupat.fi/",
           },
@@ -72,7 +99,7 @@
             pitch: -27.808675174086307,
             yaw: 79.99124092953352,
             type: "info",
-            cssClass: "custom-hotspot",
+            cssClass: "custom-hotspot custom-hotspot38",
             text: "38 Ilonet OY",
             URL: "https://ilonet.fi/",
           },
@@ -80,7 +107,7 @@
             pitch: -32.80298644988752,
             yaw: 72.80781889140339,
             type: "info",
-            cssClass: "custom-hotspot",
+            cssClass: "custom-hotspot custom-hotspot79",
             text: "79 TL Toimistopalvelut OY",
             URL: "https://tltoimistopalvelut.fi/",
           },
