@@ -1,5 +1,6 @@
 import express from "express";
 import formidable from "formidable";
+import { getPgVersion } from "./db.js";
 
 const port = 3000;
 const app = express();
@@ -20,9 +21,8 @@ async function index(req, res) {
   });
 }
 
-app.get("/admin*", (req, res) => {
-  console.log(req.params);
-  console.log(req.url);
+app.get("/admin*", async (req, res) => {
+  console.log(await getPgVersion());
   res.render(req.url.slice(1), {
     subject: "EJS template template engine",
     name: "our templated",
