@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
-import pg from "pg";
-const { Pool } = pg;
 dotenv.config();
 const { DATABASE_URL } = process.env;
+import pg from "pg";
+const { Pool } = pg;
 
 const pool = new Pool({ connectionString: DATABASE_URL });
 
