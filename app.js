@@ -32,7 +32,8 @@ app.get("/admin", async (req, res) => {
   });
 });
 
-app.get("/admin/*", async (req, res) => {
+// admin view, list tour
+app.get("/admin", async (req, res) => {
   res.render(req.url.slice(1), {
     subject: "EJS template template engine",
     name: "our templated",
@@ -40,7 +41,18 @@ app.get("/admin/*", async (req, res) => {
   });
 });
 
-app.post("/admin/panorama", async (req, res) => {
+// create new tour view
+app.get("/admin/tour", async (req, res) => {
+  console.log(req.params);
+  res.render("admin/tour", {
+    subject: "EJS template template engine",
+    name: "our templated",
+    link: "https://google.com",
+  });
+});
+
+// create new tour
+app.post("/admin/tour", async (req, res) => {
   const form = formidable({ fileWriteStreamHandler: s3.uploadFile });
   try {
     const [fields, files] = await form.parse(req);
@@ -54,6 +66,29 @@ app.post("/admin/panorama", async (req, res) => {
     res.json({ result });
   } catch (e) {
     console.error("error write file", e);
+    res.json({ error: e });
+  }
+});
+
+// edit tour view
+app.get("/admin/tour-edit/:id", async (req, res) => {
+  const tour = await db.getTour(req.params.id);
+  console.log(req.params, tour);
+  res.render("admin/tour-edit", {
+    id: req.params.id,
+    name: "our templated",
+  });
+});
+
+// add new hotspot
+app.post("/admin/tour-edit/:id/hotspot", async (req, res) => {
+  const form = formidable();
+
+  try {
+    const [fields] = await form.parse(req);
+    res.json({ form_id: req.params.id, fields });
+  } catch (e) {
+    console.error(e);
     res.json({ error: e });
   }
 });

@@ -19,7 +19,22 @@ export async function createTour(name, file) {
   return result.rows[0];
 }
 
+export async function getTour(id) {
+  const result = await pool.query(`select * from tour where tour.id = $1`, [
+    id,
+  ]);
+  return result.rows[0];
+}
+
 export async function listTour() {
   const result = await pool.query(`select * from tour`);
   return result.rows;
+}
+
+export async function createHotSpot(name, file) {
+  const result = await pool.query(
+    `insert into tour(name) values ($1, $2) returning *`
+  );
+
+  return result.rows[0];
 }

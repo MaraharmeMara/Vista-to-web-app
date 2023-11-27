@@ -17,8 +17,8 @@
     </div>
 
     <div class="container-fluid">
-      <a href="/admin/panorama" type="button" class="btn btn-primary"
-        >Add new panorama</a
+      <a href="/admin/tour" type="button" class="btn btn-primary"
+        >Add new tour</a
       >
 
       <section>
@@ -26,8 +26,9 @@
         <ol class="list-group list-group-numbered">
           <% if (tours) { %> <% tours.forEach(element => { %>
           <li class="list-group-item">
-            Name:<%=element.name%> <br />
-            File: <img src="<%=element.panorama_file%>" alt="" />
+            <%- JSON.stringify(element) %> Name:<%=element.name%> <br />
+            <a href="/admin/tour-edit/<%=element.id%>">Edit:</a><br />
+            <!-- File: <img src="<%=element.panorama_file%>" alt="" /> -->
           </li>
           <% }) %> <% } %>
         </ol>

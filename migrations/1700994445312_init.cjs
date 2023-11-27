@@ -12,7 +12,7 @@ exports.up = (pgm) => {
         default: pgm.func("current_timestamp"),
       },
       id: "id",
-      name: { type: "varchar(100)", notNull: true },
+      name: { type: "varchar(100)", notNull: true, unique: true },
       panorama_file: {
         type: "varchar(300)",
       },
