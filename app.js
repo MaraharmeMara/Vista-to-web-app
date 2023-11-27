@@ -1,6 +1,8 @@
 import express from "express";
 import formidable from "formidable";
-import { getPgVersion } from "./db.js";
+import * as db from "./db.js";
+import * as s3 from "./s3.js";
+import e from "express";
 
 const port = 3000;
 const app = express();
@@ -21,8 +23,18 @@ async function index(req, res) {
   });
 }
 
-app.get("/admin*", async (req, res) => {
-  console.log(await getPgVersion());
+app.get("/admin", async (req, res) => {
+  const tours = await db.listTour();
+  // console.dir(tours);
+  tours.forEach((element) => {
+    element.panorama_file = s3.getFilePath(element.panorama_file);
+  });
+  res.render(req.url.slice(1), {
+    tours: tours,
+  });
+});
+
+app.get("/admin/*", async (req, res) => {
   res.render(req.url.slice(1), {
     subject: "EJS template template engine",
     name: "our templated",
@@ -30,18 +42,20 @@ app.get("/admin*", async (req, res) => {
   });
 });
 
-app.post("/admin/panorama", (req, res) => {
-  const form = formidable({});
+app.post("/admin/panorama", async (req, res) => {
+  const form = formidable({ fileWriteStreamHandler: s3.uploadFile });
+  try {
+    const [fields, files] = await form.parse(req);
+    console.log(files);
+    const result = await db.createTour(
+      fields.panoramaName[0],
+      files.panoramaFile[0].uuid
+    );
 
-  form.parse(req, (err, fields, files) => {
-    if (err) {
-      res.json({
-        error: err,
-        msg: "failed to upload file",
-      });
-      return;
-    }
-
-    res.json({ fields, files });
-  });
+    console.log("done!");
+    res.json({ result });
+  } catch (e) {
+    console.error("error write file", e);
+    res.json({ error: e });
+  }
 });

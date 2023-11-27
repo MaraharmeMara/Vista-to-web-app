@@ -15,6 +15,7 @@
       crossorigin="anonymous"
     />
   </head>
+
   <body>
     <div class="container-fluid">
       <pre><code>
@@ -32,9 +33,13 @@
 
       <section>
         <h3>panorama list</h3>
-        <ol>
-          <li>panorama 1</li>
-          <li>panorama 2</li>
+        <ol class="list-group list-group-numbered">
+          <% if (tours) { %> <% tours.forEach(element => { %>
+          <li class="list-group-item">
+            Name:<%=element.name%> <br />
+            File: <img src="<%=element.panorama_file%>" alt="" />
+          </li>
+          <% }) %> <% } %>
         </ol>
       </section>
     </div>
