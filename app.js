@@ -6,8 +6,7 @@ import e from "express";
 
 const port = 3000;
 const app = express();
-app.use("/img", express.static("img"));
-app.use("/numbers", express.static("numbers"));
+app.use("/assets", express.static("assets"));
 app.set("view engine", "ejs");
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);

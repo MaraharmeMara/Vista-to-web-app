@@ -1,19 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%- include("partials/head.ejs") %>
     <title>Panorama 360</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
+
     <style>
       .custom-hotspot {
         height: 50px;
@@ -23,46 +13,45 @@
       }
 
       .custom-hotspot9 {
-        background-image: url("/numbers/9.png");
+        background-image: url("/assets/img/numbers/9.png");
       }
       .custom-hotspot38 {
-        background-image: url("/numbers/38.png");
+        background-image: url("/assets/img/numbers/38.png");
       }
       .custom-hotspot79 {
-        background-image: url("/numbers/79.png");
+        background-image: url("/assets/img/numbers/79.png");
       }
       .custom-hotspot38 {
-        background-image: url("/numbers/38.png");
+        background-image: url("/assets/img/numbers/38.png");
       }
       .custom-hotspot81 {
-        background-image: url("/numbers/81.png");
+        background-image: url("/assets/img/numbers/81.png");
       }
       .custom-hotspot33 {
-        background-image: url("/numbers/33.png");
+        background-image: url("/assets/img/numbers/33.png");
       }
       .custom-hotspot30 {
-        background-image: url("/numbers/30.png");
+        background-image: url("/assets/img/numbers/30.png");
       }
       .custom-hotspot27 {
-        background-image: url("/numbers/27.png");
+        background-image: url("/assets/img/numbers/27.png");
       }
       .custom-hotspot24 {
-        background-image: url("/numbers/24.png");
+        background-image: url("/assets/img/numbers/24.png");
       }
       .custom-hotspot23 {
-        background-image: url("/numbers/23.png");
+        background-image: url("/assets/img/numbers/23.png");
       }
       .custom-hotspot53 {
-        background-image: url("/numbers/53.png");
+        background-image: url("/assets/img/numbers/53.png");
       }
       .custom-hotspot46 {
-        background-image: url("/numbers/46.png");
+        background-image: url("/assets/img/numbers/46.png");
       }
       .custom-hotspot32 {
-        background-image: url("/numbers/32.png");
+        background-image: url("/assets/img/numbers/32.png");
       }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
   </head>
   <body>
     <div class="container-fluid pb-3">
@@ -97,7 +86,8 @@
     <script>
       pannellum.viewer("panorama", {
         type: "equirectangular",
-        panorama: "http://localhost:3000/img/Keskusta Talvi.jpg",
+        panorama:
+          "http://localhost:3000/assets/img/panorama/Keskusta Talvi.jpg",
         autoLoad: true,
         autoRotate: -2,
         hotSpotDebug: true,
@@ -209,10 +199,7 @@
         ],
       });
     </script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+
+    <%- include("partials/footer.ejs") %>
   </body>
 </html>
