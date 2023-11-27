@@ -57,6 +57,29 @@
     <div class="container-fluid pb-3">
       <a href="/admin">admin panel</a>
       <h1>360 Panorama viewer test</h1>
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Check me out</label
+          >
+        </div>
+        <button type="submit" class="mb-3 btn btn-primary">Submit</button>
+      </form>
       <div id="panorama" style="width: 90vw; height: 90vh"></div>
     </div>
 
@@ -66,6 +89,7 @@
         panorama:
           "http://localhost:3000/assets/img/panorama/Keskusta Talvi.jpg",
         autoLoad: true,
+        autoRotate: -2,
         hotSpotDebug: true,
         hotSpots: [
           {
@@ -75,6 +99,14 @@
             text: "9 Taukoherkut",
             URL: "https://www.taukoherkut.fi/avoinna/",
             cssClass: "custom-hotspot custom-hotspot9",
+          },
+          {
+            pitch: -16.99802725077595,
+            yaw: 41.4736407853587,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot38",
+            text: "S-Market",
+            URL: "https://www.s-kaupat.fi/",
           },
           {
             pitch: -23.08376959211073,
@@ -129,7 +161,7 @@
             yaw: 128.91086208493212,
             type: "info",
             cssClass: "custom-hotspot custom-hotspot46",
-            text: "46 Jalkojenhoito ElämysMantsi",
+            text: "46 Jalkojenhoito Elämys Mantsi",
             URL: "",
           },
           {

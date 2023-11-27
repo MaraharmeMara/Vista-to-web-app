@@ -15,9 +15,10 @@
             - create tour panorama hotspot
         </code></pre>
     </div>
+
     <div class="container-fluid">
       <a href="/admin/panorama" type="button" class="btn btn-primary"
-        >add new panorama</a
+        >Add new panorama</a
       >
 
       <section>
@@ -32,6 +33,192 @@
         </ol>
       </section>
     </div>
+
+    <div>
+      <header>
+        <h1>Admin panel</h1>
+      </header>
+
+      <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#settings">Settings</a>
+        <a href="#logout">Logout</a>
+      </nav>
+
+      <section id="dashboard"></section>
+
+      <label for="panoramaFile" class="custom-file-upload">
+        <input type="file" id="panoramaFile" name="panoramaFile" />
+        Upload Panorama
+      </label>
+
+      <section id="user-card">
+        <h2>Yrityskortti</h2>
+        <form>
+          <label for="name">Nimi:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Yrityksen Nimi"
+          />
+          <br />
+
+          <label for="email">S-posti:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Sähköpostiosoite"
+          />
+          <br />
+
+          <label for="phone">Puhelin:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            placeholder="0451111111"
+          />
+          <br />
+
+          <label for="address">Osoite:</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            required
+            placeholder="Kaislakatu 1"
+          />
+          <br />
+
+          <label for="website">Verkkosivu:</label>
+          <input
+            type="url"
+            id="url"
+            name="url"
+            required
+            placeholder="http://fjkdjf"
+          />
+          <br />
+
+          <label for="sotials">SoMe:</label>
+          <input
+            type="url"
+            id="sotials"
+            name="sotials"
+            required
+            placeholder="http://fjkdjf"
+          />
+          <br />
+
+          <label for="hotspot">Hotspot:</label>
+          <input
+            type="hotspot"
+            id="hotspot"
+            name="hotspot"
+            required
+            placeholder="81"
+          />
+          <br />
+
+          <label for="coords">Coordinates:</label>
+          <input
+            type="coords"
+            id="coords"
+            name="coords"
+            required
+            placeholder="pitch:347895275, yaw:58795788"
+          />
+          <br />
+
+          <label for="map">Google Maps</label>
+          <input
+            type="url"
+            id="map"
+            name="map"
+            placeholder="Google Maps Link"
+          />
+          <br />
+
+          <label for="description">Info:</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            required
+            placeholder="lorem ipsum"
+          />
+          <br />
+
+          <label for="file" class="custom-file-upload">
+            <input type="file" id="file" name="file" />Lisää panorama
+          </label>
+
+          <!-- input fields  -->
+
+          <button type="submit">Talenna</button>
+        </form>
+      </section>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var form = document.querySelector("form");
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form data
+          var formData = new FormData(form);
+
+          // You can use AJAX to send the form data to your server
+          // For simplicity, this example just logs the form data
+          for (var pair of formData.entries()) {
+            console.log(pair[0] + ": " + pair[1]);
+          }
+
+          // Add logic to handle the panorama file separately and upload it to the server
+          var panoramaFile = formData.get("panoramaFile");
+          if (panoramaFile) {
+            // Handle the panorama file, upload it, and store the necessary information
+            console.log("Panorama File:", panoramaFile.name);
+            // Add logic to upload and store the panorama file on your server
+          }
+        });
+      });
+    </script>
+
+    <script>
+      // Google Maps Initialization
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 37.7749, lng: -122.4194 }, // Default to San Francisco
+          zoom: 12,
+        });
+
+        // Add a marker for a specific location
+        var marker = new google.maps.Marker({
+          position: { lat: 37.7749, lng: -122.4194 }, // Change to the specific location coordinates
+          map: map,
+          title: "Your Place Name", // Replace with the actual place name
+        });
+
+        // Set the link to Google Maps
+        var googleMapsLink = document.getElementById("googleMapsLink");
+        googleMapsLink.href =
+          "https://www.google.com/maps?q=" +
+          marker.getPosition().lat() +
+          "," +
+          marker.getPosition().lng();
+
+        // You can customize the map and marker further based on your needs
+      }
+    </script>
+
     <%- include("../partials/footer.ejs") %>
   </body>
 </html>
