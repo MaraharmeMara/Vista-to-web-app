@@ -50,7 +50,36 @@
       }
       .custom-hotspot32 {
         background-image: url("/assets/img/numbers/32.png");
+      }  
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
       }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
   </head>
   <body>
@@ -82,7 +111,54 @@
       </form>
       <div id="panorama" style="width: 90vw; height: 90vh"></div>
     </div>
+        <div>
+          <title>Panorama/Hotspot Settings</title>
+          
+          <div><h2>Panorama Settings</h2>
 
+      <form>
+        <label for="panoramaName">Panorama Name:</label>
+        <input type="text" id="panoramaName" name="panoramaName" required>
+
+        <label for="panoramaType">Panorama Type:</label>
+        <select id="panoramaType" name="panoramaType">
+            <option value="360">360-Degree</option>
+            <option value="flat">Flat</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <label for="panoramaResolution">Panorama Resolution:</label>
+        <input type="text" id="panoramaResolution" name="panoramaResolution" required>
+
+        <!-- Add more settings as needed -->
+
+        <button type="submit">Save Settings</button>
+      </form>
+    </div>
+
+    <h2>Hotspot Settings</h2>
+
+    <form>
+        <label for="hotspotName">Hotspot Name:</label>
+        <input type="text" id="hotspotName" name="hotspotName" required>
+
+        <label for="hotspotType">Hotspot Type:</label>
+        <select id="hotspotType" name="hotspotType">
+            <option value="image">Image</option>
+            <option value="video">Video</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <label for="hotspotPosition">Hotspot Position:</label>
+        <input type="text" id="hotspotPosition" name="hotspotPosition" required>
+
+        <!-- Add more settings as needed -->
+
+        <button type="submit">Save Settings</button>
+    </form>
+          <br />
+          </div>
+        </div>
     <script>
       pannellum.viewer("panorama", {
         type: "equirectangular",
