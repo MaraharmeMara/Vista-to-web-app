@@ -2,7 +2,6 @@ import express from "express";
 import formidable from "formidable";
 import * as db from "./db.js";
 import * as s3 from "./s3.js";
-import e from "express";
 
 const port = 3000;
 const app = express();
