@@ -6,6 +6,7 @@ const { S3_KEY, S3_SECRET, S3_BUCKET, S3_PATH } = process.env;
 // imports
 import { PassThrough } from "node:stream";
 import { Upload } from "@aws-sdk/lib-storage";
+import { v4 as uuidv4 } from "uuid";
 import {
   S3Client,
   ListBucketsCommand,
@@ -40,23 +41,30 @@ try {
   // finally.
 }
 
+// export function uploadFile(fileName) {
+//     return (panoramaFile) => {
+
+//     }
+// }
+
 export function uploadFile(panoramaFile) {
-  console.log(panoramaFile);
-  console.log("1");
+  panoramaFile.uuid = uuidv4();
+  //   console.log(panoramaFile);
+
   const pass = new PassThrough();
-  console.log("2");
   const parallelUploads3 = new Upload({
     client: client,
     params: {
       Bucket: S3_BUCKET,
-      Key: S3_BUCKET,
+      Key: panoramaFile.uuid,
       Body: pass,
+      ContentType: "image/jpeg",
     },
   });
 
-  parallelUploads3.on("httpUploadProgress", (progress) => {
-    console.log("progress", progress);
-  });
+  //   parallelUploads3.on("httpUploadProgress", (progress) => {
+  //     console.log("progress", progress);
+  //   });
   parallelUploads3.done();
 
   return pass;

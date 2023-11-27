@@ -43,18 +43,17 @@ app.get("/admin/*", async (req, res) => {
 });
 
 app.post("/admin/panorama", async (req, res) => {
-  console.log(req.headers);
-
-  const form = formidable({
-    fileWriteStreamHandler: s3.uploadFile,
-    // multiples: true,
-    // allowEmptyFiles: false,
-  });
-
+  const form = formidable({ fileWriteStreamHandler: s3.uploadFile });
   try {
-    const { fields, files } = await form.parse(req);
-    res.json({ fields, files, kek: "kek" });
+    const [fields, files] = await form.parse(req);
+    console.log(files);
+    const result = await db.createTour(
+      fields.panoramaName[0],
+      files.panoramaFile[0].uuid
+    );
+
     console.log("done!");
+    res.json({ result });
   } catch (e) {
     console.error("error write file", e);
     res.json({ error: e });
