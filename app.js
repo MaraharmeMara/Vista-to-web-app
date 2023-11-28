@@ -20,6 +20,12 @@ async function index(req, res) {
     link: "https://google.com",
   });
 }
+app.get("/login", async (req, res) => {
+  res.render(req.url.slice(1));
+});
+app.get("/logout", async (req, res) => {
+  res.render(req.url.slice(1));
+});
 
 app.get("/admin", async (req, res) => {
   const tours = await db.listTour();
