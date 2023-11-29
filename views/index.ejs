@@ -82,33 +82,30 @@
       }
     </style>
 
-<style>
-  body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-  }
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
 
-  .btn-group-top {
-      display: flex;
-      justify-content: center;
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-  }
+      .btn-group-top {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
 
-  .btn-group-top .btn {
-      width: 60px; 
-      height: 60px; 
-      margin: 0 5px; 
-      font-size: 24px; 
-  }
-</style>
-</head>
-<body>
-
-<div class="container-fluid">
+      .btn-group-top .btn {
+        width: 60px;
+        height: 60px;
+        margin: 0 5px;
+        font-size: 24px;
+      }
+    </style>
   </head>
+
   <body class="bg-light">
     <div class="container-fluid p-0">
       <div>
@@ -116,19 +113,31 @@
         <a href="/login" class="btn btn-primary">Login</a>
         <a href="/logout" class="btn btn-primary">Logout</a>
       </div>
-    <div class="container-fluid">
-      <div class="btn-group-top" role="group" aria-label="Change Season">
-        <button type="button" class="btn btn-secondary">
-            <a href="#winter"><img src="/assets/img/seasons/Talvi.png" alt="Spring Icon" class="img-fluid"></a>
-        </button>
-        <button type="button" class="btn btn-secondary">
-            <a href="#summer"><img src="/assets/img/seasons/Kesä.png" alt="Summer Icon" class="img-fluid"></a>
-        </button>
-        <button type="button" class="btn btn-secondary">
-            <a href="#autumn"><img src="/assets/img/seasons/Syksy.png" alt="Autumn Icon" class="img-fluid"></a>
-        </button>
+      <div class="container-fluid">
+        <div class="btn-group-top" role="group" aria-label="Change Season">
+          <button type="button" class="btn btn-secondary winter">
+            <img
+              src="/assets/img/seasons/Talvi.png"
+              alt="Winter Icon"
+              class="img-fluid"
+            />
+          </button>
+          <button type="button" class="btn btn-secondary summer">
+            <img
+              src="/assets/img/seasons/Kesä.png"
+              alt="Summer Icon"
+              class="img-fluid"
+            />
+          </button>
+          <button type="button" class="btn btn-secondary autumn">
+            <img
+              src="/assets/img/seasons/Syksy.png"
+              alt="Autumn Icon"
+              class="img-fluid"
+            />
+          </button>
+        </div>
       </div>
-    </div>
 
       <h1 class="mt-3">360 Panorama Viewer Test</h1>
       <div id="panorama" class="mt-5" style="height: 70vh"></div>
@@ -219,261 +228,261 @@
       </div>
 
       <!-- Add this modal at the end of your body -->
-<div class="modal fade" id="hotspotSettingsModal" tabindex="-1" aria-labelledby="hotspotSettingsModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="hotspotSettingsModalLabel">Hotspot Settings</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
+      <div
+        class="modal fade"
+        id="hotspotSettingsModal"
+        tabindex="-1"
+        aria-labelledby="hotspotSettingsModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="hotspotSettingsModalLabel">
+                Hotspot Settings
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
               <!-- Add your hotspot settings form here -->
               <!-- For example: -->
               <label for="hotspotName">Hotspot Name:</label>
-              <input type="text" class="form-control" id="hotspotName" name="hotspotName" required>
-              
+              <input
+                type="text"
+                class="form-control"
+                id="hotspotName"
+                name="hotspotName"
+                required
+              />
+
               <!-- Add more settings as needed -->
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="saveHotspotSettings()"
+              >
+                Save Settings
+              </button>
+            </div>
           </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="saveHotspotSettings()">Save Settings</button>
-          </div>
+        </div>
       </div>
-  </div>
-</div>
 
-
-<div class="modal fade" id="companyInfoModal" tabindex="-1" aria-labelledby="companyInfoModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="companyInfoModalLabel">Company Information</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              
+      <div
+        class="modal fade"
+        id="companyInfoModal"
+        tabindex="-1"
+        aria-labelledby="companyInfoModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="companyInfoModalLabel">
+                Company Information
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
               <h3 id="companyName"></h3>
               <p id="companyAddress"></p>
               <p id="companyWebsite"></p>
-            
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
           </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
+        </div>
       </div>
-  </div>
-</div>
-
-      
     </div>
-    <script>
-      pannellum.viewer("panorama", {
-        type: "equirectangular",
-        panorama:
-          "http://localhost:3000/assets/img/panorama/Keskusta Talvi.jpg",
-        autoLoad: true,
-        autoRotate: -2,
-        hotSpotDebug: true,
-        hotSpots: [
-          {
-            pitch: -24.346705348960988,
-            yaw: 10.740680010482265,
-            type: "info",
-            text: "9 Taukoherkut",
-            URL: "https://www.taukoherkut.fi/avoinna/",
-            cssClass: "custom-hotspot custom-hotspot9",
-          },
-          {
-            pitch: -23.08376959211073,
-            yaw: 77.88745203393269,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot81",
-            text: "81 Asianajotoimisto Teräskulma",
-            URL: "https://www.teraskulma.com/",
-          },
-          {
-            pitch: -27.808675174086307,
-            yaw: 79.99124092953352,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot38",
-            text: "38 Ilonet OY",
-            URL: "https://ilonet.fi/",
-          },
-          {
-            pitch: -32.80298644988752,
-            yaw: 72.80781889140339,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot79",
-            text: "79 TL Toimistopalvelut OY",
-            URL: "https://tltoimistopalvelut.fi/",
-          },
-          {
-            pitch: -9.085970180924628,
-            yaw: 99.79569495106281,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot30",
-            text: "30 Kesport Ilomantsi",
-            URL: "https://www.kesportilomantsi.fi/",
-          },
-          {
-            pitch: -14.588997901657562,
-            yaw: 92.90880262658129,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot33",
-            text: "33 Putkiasennus Räty OY",
-            URL: "https://ratyoy.fi/",
-          },
-          {
-            pitch: -25.230788410218658,
-            yaw: 130.44704534415294,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot32",
-            text: "32 Itä-Suomen Tili- ja Isännöinti OY",
-            URL: "https://www.itasuomentili.fi/",
-          },
-          {
-            pitch: -22.452025615956,
-            yaw: 128.91086208493212,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot46",
-            text: "46 Jalkojenhoito Elämys Mantsi",
-            URL: "",
-          },
-          {
-            pitch: -20.3212368475782,
-            yaw: 126.58969132103539,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot53",
-            text: "53 Pogostan Tietoverkkopalvelut",
-            URL: "https://www.ptvp.fi/#/",
-          },
-          {
-            pitch: -13.818091286612516,
-            yaw: 119.4560435523091,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot24",
-            text: "24 Pogostan Kaluste",
-            URL: "https://pogostankaluste.fi/",
-          },
-          {
-            pitch: -16.039824021499946,
-            yaw: 121.63494731899884,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot23",
-            text: "23 Pogostan Hovi",
-            URL: "https://www.hotellipogostanhovi.fi/",
-          },
-          {
-            pitch: -10.213103913027568,
-            yaw: 116.7766689727745,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot27",
-            text: "27 Ilomantsin Leipomo",
-            URL: "https://ilomantsinleipomo.fi/",
-          },
-        ],
-      });
-    </script>
-
-    <!-- Add this script after the Bootstrap JavaScript inclusion -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-      var panoramaContainer = document.getElementById("panorama");
-      var hotspotSettingsModal = new bootstrap.Modal(document.getElementById('hotspotSettingsModal'));
-
-      // Add click event listener to the panorama container
-      panoramaContainer.addEventListener("click", function (event) {
-          // Get click coordinates
-          var x = event.clientX;
-          var y = event.clientY;
-
-          // Create a custom hotspot at the clicked position
-          createCustomHotspot(x, y);
-
-          // Open the hotspot settings modal
-          hotspotSettingsModal.show();
-      });
-
-      // Function to create a custom hotspot (you can customize this function further)
-      function createCustomHotspot(x, y) {
-          // Add your logic to create a custom hotspot at the clicked position
-          // For example, you can add a new element to represent the hotspot
-          var hotspotElement = document.createElement("div");
-          hotspotElement.className = "custom-hotspot";
-          hotspotElement.style.position = "absolute";
-          hotspotElement.style.left = x + "px";
-          hotspotElement.style.top = y + "px";
-
-          // Append the hotspot element to the panorama container
-          panoramaContainer.appendChild(hotspotElement);
-      }
-
-      // Function to save hotspot settings (called when the "Save Settings" button is clicked in the modal)
-      function saveHotspotSettings() {
-          // Add your logic to save hotspot settings
-          // You can retrieve values from the modal inputs and perform any necessary actions
-          var hotspotName = document.getElementById("hotspotName").value;
-          console.log("Hotspot Name:", hotspotName);
-
-          // Close the modal after saving settings
-          hotspotSettingsModal.hide();
-      }
-  });
-</script>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-      var panoramaContainer = document.getElementById("panorama");
-      var companyInfoModal = new bootstrap.Modal(document.getElementById('companyInfoModal'));
-
-      // Add click event listener to the panorama container
-      panoramaContainer.addEventListener("click", function (event) {
-          // Get click coordinates
-          var x = event.clientX;
-          var y = event.clientY;
-
-          // Check if a hotspot is clicked
-          var clickedHotspot = findClickedHotspot(x, y);
-
-          if (clickedHotspot) {
-              // Open the company info modal with the data from the clicked hotspot
-              openCompanyInfoModal(clickedHotspot);
-          }
-      });
-
-      // Function to find the clicked hotspot at the given coordinates
-      function findClickedHotspot(x, y) {
-          // Add your logic to determine if a hotspot is clicked at the given coordinates
-          // For example, you can check if there is an element at the clicked position with a specific class
-          var clickedElement = document.elementFromPoint(x, y);
-          if (clickedElement && clickedElement.classList.contains("custom-hotspot")) {
-              return clickedElement;
-          }
-          return null;
-      }
-
-      // Function to open the company info modal with data from the clicked hotspot
-      function openCompanyInfoModal(hotspot) {
-          // Add your logic to retrieve company information based on the clicked hotspot
-          // For example, you can use data attributes or other methods to associate data with hotspots
-          var companyName = "Company Name"; // Replace with actual data
-          var companyAddress = "Company Address"; // Replace with actual data
-          var companyWebsite = "http://www.example.com"; // Replace with actual data
-
-          // Update the content of the company info modal
-          document.getElementById("companyName").textContent = companyName;
-          document.getElementById("companyAddress").textContent = "Address: " + companyAddress;
-          document.getElementById("companyWebsite").innerHTML = "Website: <a href='" + companyWebsite + "' target='_blank'>" + companyWebsite + "</a>";
-
-          // Open the company info modal
-          companyInfoModal.show();
-      }
-  });
-</script>
-
-
 
     <%- include("partials/footer.ejs") %>
+
+    <script>
+      document.querySelector(".winter").addEventListener("click", setSeason);
+      document.querySelector(".summer").addEventListener("click", setSeason);
+      document.querySelector(".autumn").addEventListener("click", setSeason);
+      const winterImg =
+        "http://localhost:3000/assets/img/panorama/Keskusta Talvi.jpg";
+      const summerImg =
+        "http://localhost:3000/assets/img/panorama/Keskusta kesä.jpg";
+      const autumnImg =
+        "http://localhost:3000/assets/img/panorama/Keskusta syksy.jpg";
+
+      const winter = "winter";
+      const summer = "summer";
+      const autumn = "autumn";
+
+      const hostSpots = [
+        {
+          pitch: -24.346705348960988,
+          yaw: 10.740680010482265,
+          type: "info",
+          text: "9 Taukoherkut",
+          URL: "https://www.taukoherkut.fi/avoinna/",
+          cssClass: "custom-hotspot custom-hotspot9",
+        },
+        {
+          pitch: -23.08376959211073,
+          yaw: 77.88745203393269,
+          type: "info",
+          cssClass: "custom-hotspot custom-hotspot81",
+          text: "81 Asianajotoimisto Teräskulma",
+          URL: "https://www.teraskulma.com/",
+        },
+        {
+          pitch: -27.808675174086307,
+          yaw: 79.99124092953352,
+          type: "info",
+          cssClass: "custom-hotspot custom-hotspot38",
+          text: "38 Ilonet OY",
+          URL: "https://ilonet.fi/",
+        },
+        {
+          pitch: -32.80298644988752,
+          yaw: 72.80781889140339,
+          type: "info",
+          cssClass: "custom-hotspot custom-hotspot79",
+          text: "79 TL Toimistopalvelut OY",
+          URL: "https://tltoimistopalvelut.fi/",
+        },
+        {
+          pitch: -9.085970180924628,
+          yaw: 99.79569495106281,
+          type: "info",
+          cssClass: "custom-hotspot custom-hotspot30",
+          text: "30 Kesport Ilomantsi",
+          URL: "https://www.kesportilomantsi.fi/",
+        },
+        {
+          pitch: -14.588997901657562,
+          yaw: 92.90880262658129,
+          type: "info",
+          cssClass: "custom-hotspot custom-hotspot33",
+          text: "33 Putkiasennus Räty OY",
+          URL: "https://ratyoy.fi/",
+        },
+        {
+          pitch: -25.230788410218658,
+          yaw: 130.44704534415294,
+          type: "info",
+          cssClass: "custom-hotspot custom-hotspot32",
+          text: "32 Itä-Suomen Tili- ja Isännöinti OY",
+          URL: "https://www.itasuomentili.fi/",
+        },
+        {
+          pitch: -22.452025615956,
+          yaw: 128.91086208493212,
+          type: "info",
+          cssClass: "custom-hotspot custom-hotspot46",
+          text: "46 Jalkojenhoito Elämys Mantsi",
+          URL: "",
+        },
+        {
+          pitch: -20.3212368475782,
+          yaw: 126.58969132103539,
+          type: "info",
+          cssClass: "custom-hotspot custom-hotspot53",
+          text: "53 Pogostan Tietoverkkopalvelut",
+          URL: "https://www.ptvp.fi/#/",
+        },
+        {
+          pitch: -13.818091286612516,
+          yaw: 119.4560435523091,
+          type: "info",
+          cssClass: "custom-hotspot custom-hotspot24",
+          text: "24 Pogostan Kaluste",
+          URL: "https://pogostankaluste.fi/",
+        },
+        {
+          pitch: -16.039824021499946,
+          yaw: 121.63494731899884,
+          type: "info",
+          cssClass: "custom-hotspot custom-hotspot23",
+          text: "23 Pogostan Hovi",
+          URL: "https://www.hotellipogostanhovi.fi/",
+        },
+        {
+          pitch: -10.213103913027568,
+          yaw: 116.7766689727745,
+          type: "info",
+          cssClass: "custom-hotspot custom-hotspot27",
+          text: "27 Ilomantsin Leipomo",
+          URL: "https://ilomantsinleipomo.fi/",
+        },
+      ];
+
+      const tour = pannellum.viewer("panorama", {
+        default: {
+          firstScene: winter,
+        },
+        scenes: {
+          winter: {
+            type: "equirectangular",
+            autoLoad: true,
+            autoRotate: 0,
+            hotSpots: hostSpots,
+            panorama: winterImg,
+          },
+          summer: {
+            type: "equirectangular",
+            autoLoad: true,
+            autoRotate: 0,
+            hotSpots: hostSpots,
+            panorama: summerImg,
+          },
+          autumn: {
+            type: "equirectangular",
+            autoLoad: true,
+            autoRotate: 0,
+            hotSpots: hostSpots,
+            panorama: autumnImg,
+          },
+        },
+      });
+
+      function setSeason(e) {
+        console.log("set season: ", e.currentTarget.classList);
+        console.log(tour);
+
+        if (e.currentTarget.classList.contains("summer")) {
+          tour.loadScene(summer);
+          return;
+        }
+        if (e.currentTarget.classList.contains("winter")) {
+          tour.loadScene(winter);
+          return;
+        }
+        if (e.currentTarget.classList.contains("autumn")) {
+          tour.loadScene(autumn);
+          return;
+        }
+      }
+    </script>
   </body>
 </html>
