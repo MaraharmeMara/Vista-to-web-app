@@ -23,3 +23,8 @@ export async function listTour() {
   const result = await pool.query(`select * from tour`);
   return result.rows;
 }
+
+export async function getFirstTour() {
+  const result = await pool.query(`select panorama_file from tour`);
+  return result.rows[0];
+}
