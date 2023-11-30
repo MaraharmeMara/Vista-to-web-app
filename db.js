@@ -31,13 +31,25 @@ export async function listTour() {
   return result.rows;
 }
 
-export async function createHotSpot(name, file) {
+export async function createHotSpot(tourID, name, pitch, yaw, type, siteLink) {
   const result = await pool.query(
-    `insert into tour(name) values ($1, $2) returning *`
+    `insert into hotspot(parent_id,name,pitch,yaw,hotspot_type,site_link) values ($1,$2,$3,$4,$5,$6) returning *`,
+    [tourID, name, pitch, yaw, type, siteLink]
   );
+
+  return result.rows[0];
 }
 
 export async function getFirstTour() {
   const result = await pool.query(`select panorama_file from tour`);
   return result.rows[0];
+}
+
+export async function getTourHotspots(tourID) {
+  console.log(tourID);
+  const result = await pool.query(
+    `select * from hotspot where parent_id = $1`,
+    [tourID]
+  );
+  return result.rows;
 }

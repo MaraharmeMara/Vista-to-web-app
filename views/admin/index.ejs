@@ -33,16 +33,17 @@
         <h3>panorama list</h3>
         <ol class="list-group">
           <% if (tours) { %> <% tours.forEach(element => { %>
-          <li class="list-group-item">
-            <<<<<<< HEAD <%- JSON.stringify(element) %> Name:<%=element.name%>
+          <li
+            class="list-group-item"
+            style="max-height: 50vh; overflow: hidden"
+          >
+            <%- JSON.stringify(element) %> Name:<%=element.name%>
             <br />
             <a href="/admin/tour-edit/<%=element.id%>">Edit:</a><br />
             <!-- File: <img src="<%=element.panorama_file%>" alt="" /> -->
-            =======
             <strong>Name:</strong> <%=element.name%> <br />
             <strong>File:</strong>
             <img src="<%=element.panorama_file%>" alt="" class="img-fluid" />
-            >>>>>>> origin/main
           </li>
           <% }) %> <% } %>
         </ol>

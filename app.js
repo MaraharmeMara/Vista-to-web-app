@@ -14,15 +14,15 @@ app.listen(port, () => {
 app.get("/", index);
 app.get("/index", index);
 async function index(req, res) {
-  const emj = await db.getFirstTour() 
-  console.log(emj)
+  const emj = await db.getFirstTour();
+  console.log(emj);
   res.render("index.ejs", {
     subject: "EJS template template engine",
     name: "our templated",
-    link: "https://google.com", 
-        winter: s3.getFilePath(emj.panorama_file), 
-        summer: "http://localhost:3000/assets/img/panorama/Keskusta kesä.jpg",
-        autumn: "http://localhost:3000/assets/img/panorama/Keskusta syksy.jpg"
+    link: "https://google.com",
+    winter: s3.getFilePath(emj.panorama_file),
+    summer: "http://localhost:3000/assets/img/panorama/Keskusta kesä.jpg",
+    autumn: "http://localhost:3000/assets/img/panorama/Keskusta syksy.jpg",
   });
 }
 app.get("/login", async (req, res) => {
@@ -40,15 +40,6 @@ app.get("/admin", async (req, res) => {
   });
   res.render(req.url.slice(1), {
     tours: tours,
-  });
-});
-
-// admin view, list tour
-app.get("/admin", async (req, res) => {
-  res.render(req.url.slice(1), {
-    subject: "EJS template template engine",
-    name: "our templated",
-    link: "https://google.com",
   });
 });
 
@@ -83,11 +74,22 @@ app.post("/admin/tour", async (req, res) => {
 
 // edit tour view
 app.get("/admin/tour-edit/:id", async (req, res) => {
-  const tour = await db.getTour(req.params.id);
-  console.log(req.params, tour);
+  let tour = "nothing";
+  let hotspots = [];
+
+  try {
+    tour = await db.getTour(req.params.id);
+    tour = s3.getFilePath(tour.panorama_file);
+    hotspots = await db.getTourHotspots(req.params.id);
+    console.log(hotspots);
+  } catch (e) {
+    console.log("error", e);
+  }
+  // console.log(req.params, tour);
   res.render("admin/tour-edit", {
     id: req.params.id,
-    name: "our templated",
+    mainScene: tour,
+    hotspots: hotspots,
   });
 });
 
@@ -97,7 +99,17 @@ app.post("/admin/tour-edit/:id/hotspot", async (req, res) => {
 
   try {
     const [fields] = await form.parse(req);
-    res.json({ form_id: req.params.id, fields });
+    console.log(fields);
+    const result = await db.createHotSpot(
+      req.params.id,
+      fields.hotspotName[0],
+      fields.pitch[0],
+      fields.yaw[0],
+      fields.hotspotType[0],
+      fields.facebookLink[0]
+    );
+
+    res.json({ form_id: req.params.id, fields, result });
   } catch (e) {
     console.error(e);
     res.json({ error: e });

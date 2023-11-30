@@ -32,6 +32,8 @@ exports.up = (pgm) => {
       },
       id: "id",
       name: { type: "varchar(100)", notNull: true },
+      pitch: { type: "real", notNull: true },
+      yaw: { type: "real", notNull: true },
       parent_id: {
         type: "integer",
         notNull: true,
@@ -45,6 +47,9 @@ exports.up = (pgm) => {
       tour_id: {
         type: "integer",
         references: "tour",
+      },
+      site_link: {
+        type: "varchar",
       },
     },
     {

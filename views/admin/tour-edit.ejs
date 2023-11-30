@@ -1,135 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include("../partials/head.ejs") %>
-    <title>edit panorama</title>
 
-    <style>
-      .custom-hotspot {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        background-size: cover;
-      }
+<head>
+  <%- include("../partials/head.ejs") %>
+  <title>edit panorama</title>
 
-      .custom-hotspot9 {
-        background-image: url("/assets/img/numbers/9.png");
-      }
-      .custom-hotspot38 {
-        background-image: url("/assets/img/numbers/38.png");
-      }
+  <style>
+    .custom-hotspot {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background-size: cover;
+    }
 
-      .pnlm-about-msg:hover {
-        background-color: rebeccapurple;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body class="bg-light bg-gradient">
-    <div>
-      <h3>
-        Edit panorama <%=id%>
-        <button class="btn btn-secondary" onClick="history.go(0);">
-          Refresh Page
-        </button>
-      </h3>
+    .custom-hotspot9 {
+      background-image: url("/assets/img/numbers/9.png");
+    }
+
+    .custom-hotspot38 {
+      background-image: url("/assets/img/numbers/38.png");
+    }
+
+    .pnlm-about-msg:hover {
+      background-color: rebeccapurple;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="bg-light bg-gradient">
+  <div>
+    <h3>
+      Edit panorama <%=id%>
+      <button class="btn btn-secondary" onClick="history.go(0);">
+        Refresh Page
+      </button>
+    </h3>
+  </div>
+
+  <form id="hotspotForm" class="container-lg bg-info p-3 mb-3 position-fixed top-50 start-50 translate-middle z-1 invisible" enctype="multipart/form-data" action="/admin/tour-edit/<%=id%>/hotspot" method="post">
+    <h5>Hotspot edit</h5>
+    <div class="mb-3">
+      Pitch <input name="pitch" id="hotstopPitch">0</input> Yaw <input name="yaw" id="hotspotYaw">0</input>
     </div>
 
-    <form
-      id="hotspotForm"
-      class="container-lg bg-info p-3 mb-3 position-fixed top-50 start-50 translate-middle z-1 invisible"
-    >
-      <h5>Hotspot edit</h5>
-      <div class="mb-3">
-        Pitch <b id="hotstopPitch">0</b> Yaw <b id="hotspotYaw">0</b>
-      </div>
-
-      <div class="row">
-        <div class="col mb-3 form-floating">
-          <input
-            class="form-control"
-            type="text"
-            id="hotspotName"
-            name="hotspotName"
-            required
-          />
-          <label class="form-label" for="hotspotName">Hotspot Name:</label>
-        </div>
-
-        <div class="col form-floating">
-          <select class="form-select" id="hotspotType" name="hotspotType">
-            <option selected value="info">Info</option>
-            <option value="tour">Tour</option>
-          </select>
-          <label for="hotspotType">Hotspot type</label>
-        </div>
-      </div>
-
+    <div class="row">
       <div class="col mb-3 form-floating">
-        <input
-          class="form-control"
-          type="text"
-          id="facebookLink"
-          name="facebookLink"
-          required
-        />
-        <label class="form-label" for="facebookLink">Facebook link</label>
+        <input class="form-control" type="text" id="hotspotName" name="hotspotName" required />
+        <label class="form-label" for="hotspotName">Hotspot Name:</label>
       </div>
 
-      <button class="btn btn-primary" type="submit">Save Hotspot</button>
-    </form>
+      <div class="col form-floating">
+        <select class="form-select" id="hotspotType" name="hotspotType">
+          <option selected value="info">Info</option>
+          <option value="tour">Tour</option>
+        </select>
+        <label for="hotspotType">Hotspot type</label>
+      </div>
+    </div>
 
-    <div id="panorama" class="mb-3" style="height: 75vh"></div>
+    <div class="col mb-3 form-floating">
+      <input class="form-control" type="text" id="facebookLink" name="facebookLink" required />
+      <label class="form-label" for="facebookLink">Facebook link</label>
+    </div>
 
-    <script>
-      const viewer = pannellum.viewer("panorama", {
-        type: "equirectangular",
-        panorama:
-          "http://localhost:3000/assets/img/panorama/Keskusta Talvi.jpg",
-        autoLoad: true,
-        hotSpots: [
-          {
-            pitch: -24.346705348960988,
-            yaw: 10.740680010482265,
-            type: "info",
-            text: "9 Taukoherkut",
-            URL: "https://www.taukoherkut.fi/avoinna/",
-            cssClass: "custom-hotspot custom-hotspot9",
-            clickHandlerFunc: (e, b) => {
-              console.log("kek", e, b);
-              e.preventDefault();
-            },
-            clickHandlerArgs: [1, 2, 3],
-          },
-          {
-            pitch: -16.99802725077595,
-            yaw: 41.4736407853587,
-            type: "info",
-            cssClass: "custom-hotspot custom-hotspot38",
-            text: "S-Market",
-            URL: "https://www.s-kaupat.fi/",
-          },
-        ],
-      });
+    <button class="btn btn-primary" type="submit">Save Hotspot</button>
+  </form>
 
-      let [pitch, yaw] = [0, 0];
-      const dragfix = document.querySelector(".pnlm-dragfix");
-      const menu = document.querySelector(".pnlm-about-msg");
-      menu.innerHTML = "add new hotspot";
-      menu.addEventListener("click", (e, b, c) => {
-        console.log("add new hotspot", pitch, yaw);
-        hotstopPitch.innerHTML = pitch;
-        hotspotYaw.innerHTML = yaw;
+  <div id="panorama" class="mb-3" style="height: 75vh"></div>
 
-        const hotspotForm = document.getElementById("hotspotForm");
+  <script>
+    const mainScene = "<%=mainScene%>";
+    const hotSpots = [
+      <% hotspots.forEach((hs) => { %> 
+      {
+        pitch: <%=hs.pitch%>,
+        yaw: <%=hs.yaw%>,
+        type: "info",
+        text: "<%=hs.name%>",
+        URL: "<%=hs.site_link%>"
+      }, <% }) %>
+    ]
 
-        hotspotForm.classList.toggle("invisible");
-      });
+    const viewer = pannellum.viewer("panorama", {
+      type: "equirectangular",
+      panorama: mainScene,
+      autoLoad: true,
+      hotSpots: hotSpots,
+    });
 
-      dragfix.addEventListener("contextmenu", (e, b, c) => {
-        [pitch, yaw] = viewer.mouseEventToCoords(e);
-      });
-    </script>
-    <%- include("../partials/footer.ejs") %>
-  </body>
+    let [pitch, yaw] = [0, 0];
+    const dragfix = document.querySelector(".pnlm-dragfix");
+    const menu = document.querySelector(".pnlm-about-msg");
+    menu.innerHTML = "add new hotspot";
+    menu.addEventListener("click", (e, b, c) => {
+      console.log("add new hotspot", pitch, yaw);
+      hotstopPitch.value = pitch;
+      hotspotYaw.value = yaw;
+
+      const hotspotForm = document.getElementById("hotspotForm");
+
+      hotspotForm.classList.toggle("invisible");
+    });
+
+    dragfix.addEventListener("contextmenu", (e, b, c) => {
+      [pitch, yaw] = viewer.mouseEventToCoords(e);
+    });
+  </script>
+  <%- include("../partials/footer.ejs") %>
+</body>
+
 </html>
