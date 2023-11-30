@@ -35,6 +35,9 @@ export async function createHotSpot(name, file) {
   const result = await pool.query(
     `insert into tour(name) values ($1, $2) returning *`
   );
+}
 
+export async function getFirstTour() {
+  const result = await pool.query(`select panorama_file from tour`);
   return result.rows[0];
 }

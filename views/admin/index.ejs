@@ -2,18 +2,26 @@
 <html lang="en">
   <head>
     <%- include("../partials/head.ejs") %>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-GLhlTQ8iK7t1TIpo7WDBWSuBeiS2RS5MjzmqJ/6+O6Em7SwC+3gZpzz5fePss+3"
+      crossorigin="anonymous"
+    />
+
     <title>admin panel</title>
   </head>
 
   <body>
     <div class="container-fluid">
-      <pre><code>
+      <!-- <pre><code>
             todo:
             - create subsite
             - create main panorama for subsite
             - create hotspot for panorama by click on panorama. hotspot may contain img, links, description
             - create tour panorama hotspot
-        </code></pre>
+        </code></pre> -->
     </div>
 
     <div class="container-fluid">
@@ -23,12 +31,18 @@
 
       <section>
         <h3>panorama list</h3>
-        <ol class="list-group list-group-numbered">
+        <ol class="list-group">
           <% if (tours) { %> <% tours.forEach(element => { %>
           <li class="list-group-item">
-            <%- JSON.stringify(element) %> Name:<%=element.name%> <br />
+            <<<<<<< HEAD <%- JSON.stringify(element) %> Name:<%=element.name%>
+            <br />
             <a href="/admin/tour-edit/<%=element.id%>">Edit:</a><br />
             <!-- File: <img src="<%=element.panorama_file%>" alt="" /> -->
+            =======
+            <strong>Name:</strong> <%=element.name%> <br />
+            <strong>File:</strong>
+            <img src="<%=element.panorama_file%>" alt="" class="img-fluid" />
+            >>>>>>> origin/main
           </li>
           <% }) %> <% } %>
         </ol>
@@ -36,136 +50,162 @@
     </div>
 
     <div>
-      <header>
-        <h1>Admin panel</h1>
-      </header>
-
-      <nav>
-        <a href="#dashboard">Dashboard</a>
-        <a href="#settings">Settings</a>
-        <a href="#logout">Logout</a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Admin panel</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#settings">Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#logout">Logout</a>
+            </li>
+          </ul>
+        </div>
       </nav>
 
-      <section id="dashboard"></section>
+      <div class="container">
+        <section id="user-card">
+          <h2>Yrityskortti</h2>
+          <form class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="name" class="form-label">Nimi:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                required
+                placeholder="Yrityksen Nimi"
+              />
+            </div>
 
-      <label for="panoramaFile" class="custom-file-upload">
-        <input type="file" id="panoramaFile" name="panoramaFile" />
-        Upload Panorama
-      </label>
+            <div class="mb-3">
+              <label for="email" class="form-label">S-posti:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+                placeholder="Sähköpostiosoite"
+              />
+            </div>
 
-      <section id="user-card">
-        <h2>Yrityskortti</h2>
-        <form>
-          <label for="name">Nimi:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder="Yrityksen Nimi"
-          />
-          <br />
+            <div class="mb-3">
+              <label for="phone" class="form-label">Puhelin:</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="phone"
+                name="phone"
+                required
+                placeholder="0451111111"
+              />
+            </div>
 
-          <label for="email">S-posti:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="Sähköpostiosoite"
-          />
-          <br />
+            <div class="mb-3">
+              <label for="address" class="form-label">Osoite:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="address"
+                name="address"
+                required
+                placeholder="Kaislakatu 1"
+              />
+            </div>
 
-          <label for="phone">Puhelin:</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            required
-            placeholder="0451111111"
-          />
-          <br />
+            <div class="mb-3">
+              <label for="url" class="form-label">Verkkosivu:</label>
+              <input
+                type="url"
+                class="form-control"
+                id="url"
+                name="url"
+                required
+                placeholder="http://fjkdjf"
+              />
+            </div>
 
-          <label for="address">Osoite:</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            required
-            placeholder="Kaislakatu 1"
-          />
-          <br />
+            <div class="mb-3">
+              <label for="sotials" class="form-label">SoMe:</label>
+              <input
+                type="url"
+                class="form-control"
+                id="sotials"
+                name="sotials"
+                required
+                placeholder="http://fjkdjf"
+              />
+            </div>
 
-          <label for="website">Verkkosivu:</label>
-          <input
-            type="url"
-            id="url"
-            name="url"
-            required
-            placeholder="http://fjkdjf"
-          />
-          <br />
+            <div class="mb-3">
+              <label for="hotspot" class="form-label">Hotspot:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="hotspot"
+                name="hotspot"
+                required
+                placeholder="81"
+              />
+            </div>
 
-          <label for="sotials">SoMe:</label>
-          <input
-            type="url"
-            id="sotials"
-            name="sotials"
-            required
-            placeholder="http://fjkdjf"
-          />
-          <br />
+            <div class="mb-3">
+              <label for="coords" class="form-label">Coordinates:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="coords"
+                name="coords"
+                required
+                placeholder="pitch:347895275, yaw:58795788"
+              />
+            </div>
 
-          <label for="hotspot">Hotspot:</label>
-          <input
-            type="hotspot"
-            id="hotspot"
-            name="hotspot"
-            required
-            placeholder="81"
-          />
-          <br />
+            <div class="mb-3">
+              <label for="map" class="form-label">Google Maps:</label>
+              <input
+                type="url"
+                class="form-control"
+                id="map"
+                name="map"
+                placeholder="Google Maps Link"
+              />
+            </div>
 
-          <label for="coords">Coordinates:</label>
-          <input
-            type="coords"
-            id="coords"
-            name="coords"
-            required
-            placeholder="pitch:347895275, yaw:58795788"
-          />
-          <br />
+            <div class="mb-3">
+              <label for="description" class="form-label">Info:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="description"
+                name="description"
+                required
+                placeholder="lorem ipsum"
+              />
+            </div>
 
-          <label for="map">Google Maps</label>
-          <input
-            type="url"
-            id="map"
-            name="map"
-            placeholder="Google Maps Link"
-          />
-          <br />
-
-          <label for="description">Info:</label>
-          <input
-            type="text"
-            id="description"
-            name="description"
-            required
-            placeholder="lorem ipsum"
-          />
-          <br />
-
-          <label for="file" class="custom-file-upload">
-            <input type="file" id="file" name="file" />Lisää panorama
-          </label>
-
-          <!-- input fields  -->
-
-          <button type="submit">Talenna</button>
-        </form>
-      </section>
+            <div class="mb-3">
+              <label for="panoramaFile" class="form-label custom-file-upload">
+                <input
+                  type="file"
+                  class="form-control"
+                  id="panoramaFile"
+                  name="panoramaFile"
+                />
+                Upload Panorama
+              </label>
+              <button type="submit" class="btn btn-primary">Tallenna</button>
+            </div>
+          </form>
+        </section>
+      </div>
     </div>
-
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var form = document.querySelector("form");
