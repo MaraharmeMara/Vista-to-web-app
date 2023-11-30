@@ -327,12 +327,9 @@
       document.querySelector(".winter").addEventListener("click", setSeason);
       document.querySelector(".summer").addEventListener("click", setSeason);
       document.querySelector(".autumn").addEventListener("click", setSeason);
-      const winterImg =
-        "http://localhost:3000/assets/img/panorama/Keskusta Talvi.jpg";
-      const summerImg =
-        "http://localhost:3000/assets/img/panorama/Keskusta kesä.jpg";
-      const autumnImg =
-        "http://localhost:3000/assets/img/panorama/Keskusta syksy.jpg";
+      const winterImg = "<%=winter%>"
+      const summerImg = "<%=summer%>"
+      const autumnImg = "<%=autumn%>"
 
       const winter = "winter";
       const summer = "summer";

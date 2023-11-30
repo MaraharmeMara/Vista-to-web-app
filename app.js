@@ -14,10 +14,15 @@ app.listen(port, () => {
 app.get("/", index);
 app.get("/index", index);
 async function index(req, res) {
+  const emj = await db.getFirstTour() 
+  console.log(emj)
   res.render("index.ejs", {
     subject: "EJS template template engine",
     name: "our templated",
-    link: "https://google.com",
+    link: "https://google.com", 
+        winter: s3.getFilePath(emj.panorama_file), 
+        summer: "http://localhost:3000/assets/img/panorama/Keskusta kesä.jpg",
+        autumn: "http://localhost:3000/assets/img/panorama/Keskusta syksy.jpg"
   });
 }
 app.get("/login", async (req, res) => {
