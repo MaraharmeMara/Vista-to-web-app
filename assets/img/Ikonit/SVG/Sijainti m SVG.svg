@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 202.52 244.65">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        opacity: .2;
+      }
+
+      .cls-3 {
+        filter: url(#drop-shadow-1);
+        font-family: NewHero-SemiBold, 'New Hero';
+        font-size: 32px;
+        font-weight: 600;
+      }
+
+      .cls-4 {
+        fill: #4285f4;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-7 {
+        fill: none;
+      }
+
+      .cls-8 {
+        fill: #34a853;
+      }
+    </style>
+    <clipPath id="clippath">
+      <circle class="cls-7" cx="91.75" cy="91.75" r="91.75"/>
+    </clipPath>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g class="cls-6">
+        <circle class="cls-8" cx="91.75" cy="91.75" r="91.75"/>
+        <path class="cls-2" d="m135.96,196.18c-14.74-14.75-29.47-29.51-44.21-44.26.54-5.71,1.07-11.42,1.61-17.13,3.62-9.41-3.45-10.74.17-20.15-1.33-1.98-17.36-26.6-7.03-51.76,6.58-16.02,20.03-22.95,24.35-24.94l91.67,91.67-66.56,66.56Z"/>
+      </g>
+      <path class="cls-1" d="m124,63.83c0,2.1-.2,4.14-.59,6.12-.33,1.71-.79,3.37-1.37,4.96-.18.5-.38.99-.57,1.47l-29.72,75.54-29.72-75.54c-.2-.48-.4-.96-.57-1.47-.59-1.6-1.04-3.25-1.37-4.96-.39-1.98-.59-4.02-.59-6.12,0-17.81,14.44-32.25,32.25-32.25s32.25,14.44,32.25,32.25Z"/>
+      <circle class="cls-4" cx="91.75" cy="63.7" r="13.56"/>
+      <text class="cls-3" transform="translate(36.6 214.29)"><tspan x="0" y="0">Sijai</tspan><tspan class="cls-5" x="67.74" y="0">n</tspan><tspan x="87.62" y="0">ti</tspan></text>
+    </g>
+  </g>
+</svg>

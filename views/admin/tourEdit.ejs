@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs") %>
+    <title>edit panorama</title>
+
+    <style>
+        .pnlm-about-msg:hover {
+            background-color: rebeccapurple;
+            cursor: pointer;
+        }
+
+        .custom-hotspot {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-size: cover;
+            background-color: red;
+        }
+
+        .custom-hotspot::after {
+            display: block;
+            position: relative;
+            color: white;
+            text-align: center;
+            top: 15px;
+        }
+
+        <% hotspots.forEach((hs)=> { %>
+        .custom-hotspot-id-<%=hs.name %> {
+        }
+
+        .custom-hotspot-id-<%=hs.name %>::after {
+            content: "<%= hs.name %>";
+        }
+
+        <% }) %>
+    </style>
+
+    <style>
+        .poi {
+            background-color: #0c1637;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-light bg-gradient">
+
+<div class="p-2">
+    <div>
+        <h3>
+            Edit tour <%= id %> <%= JSON.stringify(tour) %>
+            <button class="btn btn-secondary btn-sm" onClick="history.go(0);">
+                Refresh Page
+            </button>
+        </h3>
+    </div>
+    <div>
+        <section>
+            <h4>Panorama list
+                <button class="btn btn-primary btn-sm">Upload new panorama</button>
+            </h4>
+            <ol>
+                <% panorama.forEach((p) => { %>
+                    <li>
+                        <button class="btn btn-primary btn-sm">
+                            <span>ID <%= p.id %></span>;
+                            <span>Image <%= p.panorama_file %></span>
+                        </button>
+                        <a class="btn btn-secondary btn-sm"
+                           href="/admin/tour/<%= tour.id %>/set-main-panorama/<%= p.id %>">Set
+                            main</a>
+                    </li>
+                <% }) %>
+            </ol>
+        </section>
+        <section>
+            <h4>Hotspot list</h4>
+            <ol>
+                <% hotspots.forEach((hs) => { %>
+                    <li>
+                        <span><%= hs.name %></span>
+                        <span><%= hs.type %></span>
+                        <span><%= hs.site_link %></span>
+                        <span><%= hs.pitch %></span>
+                        <span><%= hs.yaw %></span>
+                    </li>
+                <% }) %>
+            </ol>
+        </section>
+        <section>
+            <h4>Possible Point of Interest(POI) list</h4>
+            <% poi.forEach((hs) => { %>
+                <button class="btn btn-secondary poi" data-pid="<%= hs.id %>">
+                    <span><%= hs.type %></span>
+                    <span><%= hs.name %></span>
+                    <span><%= hs.number %></span>
+                </button>
+            <% }) %>
+        </section>
+    </div>
+</div>
+
+<form id="hotspotForm"
+      class="container-lg bg-info p-3 mb-3 position-fixed top-50 start-50 translate-middle z-1 invisible"
+      enctype="multipart/form-data" action="/admin/tour/<%= id %>/hotspot" method="post">
+    <h5>Hotspot edit</h5>
+    <div class="mb-3">
+        Pitch <input name="pitch" id="hotstopPitch" value="0">
+        Yaw <input name="yaw" id="hotspotYaw">
+        Number <input name="number" id="hotstpoNumber">
+    </div>
+
+    <div class="row">
+        <div class="col mb-3 form-floating">
+            <input class="form-control" type="text" id="hotspotName" name="hotspotName" required/>
+            <label class="form-label" for="hotspotName">Hotspot Name:</label>
+        </div>
+
+        <div class="col form-floating">
+            <select class="form-select" id="hotspotType" name="hotspotType">
+                <option selected value="info">Info</option>
+                <option value="tour">Tour</option>
+            </select>
+            <label for="hotspotType">Hotspot type</label>
+        </div>
+    </div>
+
+    <div class="col mb-3 form-floating">
+        <input class="form-control" type="text" id="facebookLink" name="facebookLink"/>
+        <label class="form-label" for="facebookLink">Facebook link</label>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save Hotspot</button>
+</form>
+
+<button class="btn btn-primary hotspot-updates">Save</button>
+
+<div id="panorama" style="height: 75vh"></div>
+
+<script>
+    function setMainPanorama(e) {
+        console.log(e)
+    }
+</script>
+
+<script>
+    const mainScene = "<%= mainScene %>";
+    const hotSpots = [
+        <% hotspots.forEach((hs) => { %> {
+            pitch: Number(<%= hs.pitch %>),
+            yaw: Number(<%= hs.yaw %>),
+            type: "info",
+            text: "<%= hs.name %>",
+            URL: "<%= hs.site_link %>",
+            cssClass: "custom-hotspot custom-hotspot-id-<%= hs.name %>"
+        },
+        <% }) %>
+    ]
+
+    const viewer = pannellum.viewer("panorama", {
+        type: "equirectangular",
+        panorama: mainScene,
+        autoLoad: true,
+        hotSpots: hotSpots,
+    });
+
+    // текущие координаты взятые с панорамы
+    const dragfix = document.querySelector(".pnlm-dragfix");
+    let [pitch, yaw] = [0, 0];
+    dragfix.addEventListener("contextmenu", (e, b, c) => {
+        [pitch, yaw] = viewer.mouseEventToCoords(e);
+    });
+
+    const menu = document.querySelector(".pnlm-about-msg");
+    const hotstopPitch = document.getElementById('hotstopPitch')
+    const hotspotYaw = document.getElementById('hotspotYaw')
+    const hotspotForm = document.getElementById("hotspotForm");
+
+    menu.innerHTML = "add new hotspot";
+    menu.addEventListener("click", (e, b, c) => {
+        console.log("add new hotspot", pitch, yaw);
+        hotstopPitch.value = pitch;
+        hotspotYaw.value = yaw;
+        hotspotForm.classList.toggle("invisible");
+    });
+</script>
+
+<!--drag pois-->
+<script>
+    let items = document.querySelectorAll(".poi")
+    let hotspotUpdates = {}
+    let tourID = "<%= tour.id %>";
+    let panoramaID = "<%= tour.main_panorama_id %>";
+
+    function updateHotspot(panoramaID, poiID, pitch, yaw) {
+        // tour id and panorama id
+        // tour + panorama + poi = hotspot( pitch + yaw)
+        hotspotUpdates[poiID] = {
+            panoramaID, poiID, pitch, yaw
+        }
+    }
+
+    function dragHandler(item) {
+        function onMouseDown(evt) {
+            item.ondragstart = function (e) {
+                e.preventDefault()
+                return false
+            }
+
+            item.style.position = 'absolute'
+            document.body.appendChild(item)
+
+            function onMouseMove(evt) {
+                item.style.left = evt.pageX - item.offsetWidth / 2 + 'px';
+                item.style.top = evt.pageY - item.offsetHeight / 2 + 'px';
+            }
+
+            document.addEventListener('mousemove', onMouseMove)
+
+            function onMouseUp(evt) { // TODO: проверять что хотспот находится в границах панорамы прежде чем добавлять в список для отправки обновления
+                const [pitch, yaw] = viewer.mouseEventToCoords(evt);
+                updateHotspot(panoramaID, item.dataset.pid, pitch, yaw)
+                document.removeEventListener('mousemove', onMouseMove)
+                item.removeEventListener('mouseup', onMouseUp)
+            }
+
+            item.addEventListener('mouseup', onMouseUp)
+        }
+
+        item.addEventListener('mousedown', onMouseDown)
+    }
+
+    for (const item of items) {
+        dragHandler(item)
+    }
+
+    document.querySelector(".hotspot-updates").addEventListener("click", async e => {
+        console.log("click")
+        console.log(hotspotUpdates)
+        const resp = await fetch(`${tourID}/hotspot`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(hotspotUpdates)
+        })
+        const b = await resp.json()
+        console.log("resp", b)
+        location.reload()
+    })
+
+
+</script>
+<%- include("../partials/footer.ejs") %>
+</body>
+
+</html>

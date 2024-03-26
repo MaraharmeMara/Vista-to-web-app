@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: none;
+        font-family: Montserrat;
+      }
+
+      .container {
+        display: flex;
+      }
+
+      .top-menu {
+        background-color: green;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .top-menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      .top-menu li {
+        margin-right: 20px;
+      }
+
+      .top-menu a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+      }
+
+      .dropbtn {
+        background-color: #1a2675;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 15%;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.2);
+      }
+
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: #2980b9;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+
+      .show {
+        display: block;
+      }
+    </style>
+    <title>Your Website</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div>
+          <script>
+            function myFunction() {
+              document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            window.onclick = function (event) {
+              if (!event.target.matches(".dropbtn")) {
+                var dropdowns =
+                  document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains("show")) {
+                    openDropdown.classList.remove("show");
+                  }
+                }
+              }
+            };
+          </script>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

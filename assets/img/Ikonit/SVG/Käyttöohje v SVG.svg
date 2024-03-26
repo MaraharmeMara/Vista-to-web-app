@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 209 243.76">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: NewHero-ExtraBold, 'New Hero';
+        font-size: 145.14px;
+        font-weight: 700;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        filter: url(#drop-shadow-1);
+        font-family: NewHero-SemiBold, 'New Hero';
+        font-size: 32px;
+        font-weight: 600;
+      }
+
+      .cls-3 {
+        fill: #7d9b47;
+      }
+
+      .cls-4 {
+        opacity: .2;
+      }
+
+      .cls-5 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-7 {
+        fill: none;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+    </style>
+    <clipPath id="clippath">
+      <circle class="cls-7" cx="99.74" cy="91.75" r="91.75"/>
+    </clipPath>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g class="cls-6">
+        <circle class="cls-3" cx="99.74" cy="91.75" r="91.75"/>
+        <path class="cls-4" d="m143.79,201.31c-17.77-17.77-37.6-38.41-55.36-56.17,4.11-9.9,40.68,11.61-1.55-36.66-.61-.7,19.18-2.63,30.84-29.11,7.43-16.87,5.37-28.04,9.92-30.27l80.5,87.19-64.35,65.03Z"/>
+      </g>
+      <text class="cls-1" transform="translate(63.07 148.83)"><tspan x="0" y="0">?</tspan></text>
+      <text class="cls-2" transform="translate(10.67 213.15)"><tspan class="cls-5" x="0" y="0">K</tspan><tspan x="21.06" y="0">äyt</tspan><tspan class="cls-8" x="74.69" y="0">t</tspan><tspan x="88.16" y="0">öohje</tspan></text>
+    </g>
+  </g>
+</svg>

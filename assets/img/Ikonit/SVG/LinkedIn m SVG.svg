@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 217.84 251.15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-family: SourceSansRoman-Black, 'Source Sans Variable';
+        font-size: 143.68px;
+        font-variation-settings: 'wght' 900;
+        font-weight: 800;
+      }
+
+      .cls-2 {
+        opacity: .2;
+      }
+
+      .cls-3 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-4 {
+        fill: #0a66c2;
+      }
+
+      .cls-5, .cls-6 {
+        fill: none;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-7 {
+        filter: url(#drop-shadow-1);
+        font-family: NewHero-SemiBold, 'New Hero';
+        font-size: 40px;
+        font-weight: 600;
+      }
+    </style>
+    <clipPath id="clippath">
+      <circle class="cls-5" cx="96.27" cy="91.75" r="91.75"/>
+    </clipPath>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g class="cls-6">
+        <circle class="cls-4" cx="96.27" cy="91.75" r="91.75"/>
+        <path class="cls-2" d="m130.71,219.69c-17.77-17.77-66.72-65.03-84.49-82.79,4.11-9.9,5.51-18.32,24.71-71.84.31-.87,21.01,20.01,24.24,20.37,18.32,2.05,46.11-15.43,50.66-17.66l72,72.15-87.12,79.77Z"/>
+        <text class="cls-1" transform="translate(37.89 136.89)"><tspan x="0" y="0">in</tspan></text>
+      </g>
+      <text class="cls-7" transform="translate(10.99 218.15)"><tspan x="0" y="0">Lin</tspan><tspan class="cls-3" x="58.96" y="0">k</tspan><tspan x="81.84" y="0">edIn</tspan></text>
+    </g>
+  </g>
+</svg>

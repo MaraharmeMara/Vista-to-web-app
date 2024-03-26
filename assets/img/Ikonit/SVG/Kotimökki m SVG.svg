@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 238.64 302.68">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        opacity: .2;
+      }
+
+      .cls-4 {
+        fill: #1e3587;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-6 {
+        fill: none;
+      }
+
+      .cls-7 {
+        fill: #ccc;
+      }
+
+      .cls-8 {
+        filter: url(#drop-shadow-1);
+        font-family: NewHero-SemiBold, 'New Hero';
+        font-size: 40px;
+        font-weight: 600;
+      }
+    </style>
+    <clipPath id="clippath">
+      <circle class="cls-6" cx="112.01" cy="91.75" r="91.75"/>
+    </clipPath>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g class="cls-5">
+        <circle class="cls-1" cx="112.01" cy="91.75" r="91.75"/>
+        <path class="cls-3" d="m149.4,208.34c-11.63-11.34-41.32-39.68-74.06-71.41-1.41-1.36,16.25-22.47,14.88-23.79-14.56-14.11-24.45-23.37-30.07-28.81,19.07-3.62,85.1,28.01,42.87-20.26-.61-.7-.63,51.19,11.04,24.7,7.43-16.87,44.64-4.55,49.19-6.77l75.4,83.92-89.25,42.42Z"/>
+      </g>
+      <text class="cls-8" transform="translate(53.11 222.15)"><tspan class="cls-2" x="0" y="0">P</tspan><tspan x="25.4" y="0">alaa</tspan><tspan x="-42.64" y="48">edelliseen</tspan></text>
+      <path class="cls-4" d="m110.6,38.96l-50.03,43.33c-1.51,1.31-.59,3.79,1.41,3.79h100.06c2,0,2.93-2.48,1.41-3.79l-50.03-43.33c-.81-.7-2.02-.7-2.83,0Z"/>
+      <rect class="cls-4" x="74.93" y="82.4" width="74.18" height="55.68" rx="2.5" ry="2.5"/>
+      <rect class="cls-7" x="99.77" y="113.16" width="24.49" height="31.9" rx="6.37" ry="6.37"/>
+    </g>
+  </g>
+</svg>

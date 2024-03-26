@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>card</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: montserrat;
+      }
+
+      #container {
+        max-width: 600px;
+        margin: 0 auto;
+        margin-top: 20vh;
+        text-align: center;
+        box-shadow: 3px 3px 8px 3px #888888;
+      }
+
+      .card {
+        background-color: white;
+        height: 300px;
+      }
+
+      button {
+        border: none;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 600;
+        color: #0077ff;
+        background-color: #e0efff;
+        margin: 0 auto;
+        display: inline;
+        cursor: pointer;
+      }
+
+      .name {
+        background-color: #7d9d47;
+        color: white;
+        height: 30px;
+        text-align: left;
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      .logo {
+        border-radius: 1px;
+        margin: 20px;
+      }
+
+      .line {
+        background-color: #0c1637;
+        height: 50px;
+      }
+      .btn-group {
+        margin-bottom: -20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="name">
+        <img src="assets/img/numbers/10.png" alt="N" />
+        Company name
+      </div>
+      <div class="card">
+        <img
+          class="logo"
+          src="assets/img/companies logos/Ilomantsin 360 Palvelukartta logo kuvalla musta 500px PNG.png"
+          alt="logo"
+        />
+      </div>
+      <div class="card_details"></div>
+      <div class="btn-group">
+        <button>site</button>
+        <button>map</button>
+        <button>facebook</button>
+        <button>instagram</button>
+      </div>
+      <div class="line"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 280.61 255.19">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1e3587;
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #191919;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        filter: url(#drop-shadow-1);
+        font-family: NewHero-SemiBold, 'New Hero';
+        font-size: 40px;
+        font-weight: 600;
+      }
+
+      .cls-5 {
+        opacity: .2;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        fill: #ccc;
+        stroke-width: 5px;
+      }
+
+      .cls-7 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-10 {
+        fill: none;
+      }
+
+      .cls-11 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-12 {
+        letter-spacing: 0em;
+      }
+
+      .cls-13 {
+        letter-spacing: 0em;
+      }
+    </style>
+    <clipPath id="clippath">
+      <circle class="cls-10" cx="129.45" cy="91.75" r="91.75"/>
+    </clipPath>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g class="cls-9">
+        <circle class="cls-3" cx="129.45" cy="91.75" r="91.75"/>
+        <path class="cls-5" d="m168.05,217.91c-11.63-11.34-41.32-39.68-74.06-71.41-1.41-1.36,30.09.59,28.73-.73-14.56-14.11,6.92-32.68,1.3-38.12,19.07-3.62,39.88,14.25-2.35-34.02-.61-.7-.63,51.19,11.04,24.7,7.43-16.87,27.38-60.92,31.93-63.14l115.97,115.41-112.57,67.31Z"/>
+      </g>
+      <text class="cls-4" transform="translate(10.63 222.15)"><tspan x="0" y="0">A</tspan><tspan class="cls-12" x="29.68" y="0">s</tspan><tspan class="cls-8" x="50" y="0">tu </tspan><tspan class="cls-7" x="101.88" y="0">o</tspan><tspan class="cls-11" x="127.04" y="0">v</tspan><tspan x="149.36" y="0">e</tspan><tspan class="cls-13" x="173.48" y="0">st</tspan><tspan class="cls-6" x="210.64" y="0">a</tspan></text>
+      <rect class="cls-2" x="94.97" y="36.61" width="68.96" height="110.28" rx="4.56" ry="4.56"/>
+      <path class="cls-1" d="m162.25,147.24l-44.22,9.21c-1.19.25-2.25-1.07-2.25-2.78V29.83c0-1.72,1.06-3.03,2.25-2.78l44.22,9.21c.97.2,1.68,1.39,1.68,2.78v105.41c0,1.4-.72,2.58-1.68,2.78Z"/>
+      <ellipse class="cls-3" cx="124.4" cy="89.24" rx="2.62" ry="3.49"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head.ejs") %>
+    <title>Login</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="needs-validation" novalidate>
+      <h2 class="text-center mb-4">Login</h2>
+
+      <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>

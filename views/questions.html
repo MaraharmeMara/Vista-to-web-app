@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #questionsContainer {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #questionsContainer h2 {
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 10px;
+        }
+
+        #submitAnswers {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="questionsContainer">
+    <h2>Answer the Questions</h2>
+    <div class="question">
+        <label for="answer1">Answer to Question 1:</label>
+        <input type="text" id="answer1" name="answer1" required>
+    </div>
+
+    <div class="question">
+        <label for="answer2">Answer to Question 2:</label>
+        <input type="text" id="answer2" name="answer2" required>
+    </div>
+
+    <!-- Add more questions as needed -->
+
+    <button id="submitAnswers" onclick="submitAnswers()">Submit Answers</button>
+</div>
+
+<script>
+    function submitAnswers() {
+        var answer1 = document.getElementById('answer1').value;
+        var answer2 = document.getElementById('answer2').value;
+
+        // Add your logic here to handle the submitted answers
+        console.log('Answer to Question 1:', answer1);
+        console.log('Answer to Question 2:', answer2);
+
+        // Add further processing or redirection if needed
+    }
+</script>
+
+</body>
+</html>

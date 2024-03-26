@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head.ejs") %>
+    <title>admin panel</title>
+</head>
+
+<body class="container-fluid full-layout">
+<!-- <pre><code>
+      todo:
+      - create subsite
+      - create main panorama for subsite
+      - create hotspot for panorama by click on panorama. hotspot may contain img, links, description
+      - create tour panorama hotspot
+  </code></pre> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Admin panel</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#settings">Settings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div>
+    <h3>tour list</h3>
+    <a href="/admin/tour" type="button" class="btn btn-primary">Add new tour</a>
+    <%- include("../partials/tourList.ejs") %>
+</div>
+
+<%- include("../partials/footer.ejs") %>
+</body>
+</html>

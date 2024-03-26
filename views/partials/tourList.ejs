@@ -1,0 +1,23 @@
+<section>
+    <ol class="list-group">
+        <% if (tours) { %> <% tours.forEach(element => { %>
+            <li
+                    class="list-group-item"
+                    style="max-height: 50vh; overflow: hidden"
+            >
+                <div class="btn-group btn-group-sm">
+                    <a class="btn btn-info" href="/admin/tour-edit/<%= element.id %>">Edit</a>
+                    <a class="btn btn-danger" href="/admin/tour-delete/<%= element.id %>">Delete</a>
+                </div>
+                <br/>
+                <%- JSON.stringify(element) %> Name:<%= element.name %>
+                <br/>
+                <!-- File: <img src="<%= element.panorama_file %>" alt="" /> -->
+                <strong>Name:</strong> <%= element.name %> <br/>
+                <strong>File:</strong>
+                <img src="<%= element.panorama_file %>" alt="" class="img-fluid"/>
+            </li>
+        <% }) %>
+        <% } %>
+    </ol>
+</section>

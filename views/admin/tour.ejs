@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head.ejs") %>
+    <title>panorama</title>
+</head>
+<body>
+<form
+        class="container-fluid"
+        enctype="multipart/form-data"
+        action="/admin/tour"
+        method="post"
+>
+    <h3>New panorama</h3>
+    <label for="imgInput" class="form-label mb-3">Add new panorma file</label>
+    <div class="input-group mb-3">
+        <label>
+            <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Panorama name"
+                    name="panoramaName"
+            />
+        </label>
+    </div>
+    <input
+            class="form-control mb-3"
+            accept="image/*"
+            type="file"
+            id="imgInput"
+            name="panoramaFile"
+    />
+    <div class="container-xl">
+        <img id="blah" src="#" class="img-thumbnail" alt="your image"/>
+    </div>
+    <button class="btn btn-primary mb-3" value="save">Save</button>
+</form>
+
+<script>
+    let imgInput = document.querySelector("#imgInput")
+    let imgView = document.querySelector("#blah")
+    imgInput.onchange = () => {
+        const [file] = imgInput.files;
+        if (file) {
+            imgView.src = URL.createObjectURL(file);
+        }
+    };
+</script>
+
+<%- include("../partials/footer.ejs") %>
+</body>
+</html>

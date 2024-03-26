@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information and Packages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #507e4a;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #userCard {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #userInfoFields {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #userInfoFields label {
+            margin-bottom: 5px;
+        }
+
+        .packages {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .package-card {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            margin: 20px;
+        }
+
+        .package-card:hover {
+            transform: scale(1.05);
+        }
+
+        .package-description {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .confirmation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .confirmation-modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="userCard">
+    <h2>User Information</h2>
+    <div id="userInfoFields">
+        <label for="userName">Name:</label>
+        <input type="text" id="userName" name="userName" required>
+
+        <label for="userEmail">Email:</label>
+        <input type="email" id="userEmail" name="userEmail" required>
+    </div>
+</div>
+
+<div class="packages">
+    <div class="package-card" onclick="showConfirmation('Package 1')">
+        <h3>Package 1</h3>
+        <div class="package-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </div>
+    </div>
+
+    <div class="package-card" onclick="showConfirmation('Package 2')">
+        <h3>Package 2</h3>
+        <div class="package-description">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+        </div>
+    </div>
+
+    <div class="package-card" onclick="showConfirmation('Package 3')">
+        <h3>Package 3</h3>
+        <div class="package-description">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+        </div>
+    </div>
+
+    <div class="package-card" onclick="showConfirmation('Package 4')">
+        <h3>Package 4</h3>
+        <div class="package-description">
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+    </div>
+</div>
+
+<!-- Confirmation modal -->
+<div id="confirmationModal" class="confirmation-modal">
+    <div class="confirmation-modal-content">
+        <span class="close" onclick="closeConfirmation()">&times;</span>
+        <h2>Package Confirmation</h2>
+        <p id="selectedPackage"></p>
+        <div class="confirmation-buttons">
+            <button onclick="confirmPackage()">Confirm</button>
+            <button onclick="closeConfirmation()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showConfirmation(packageName) {
+        document.getElementById('selectedPackage').innerText = packageName;
+        document.getElementById('confirmationModal').style.display = 'flex';
+    }
+
+    function closeConfirmation() {
+        document.getElementById('confirmationModal').style.display = 'none';
+    }
+
+    function confirmPackage() {
+        var selectedPackage = document.getElementById('selectedPackage').innerText;
+        console.log('Confirmed:', selectedPackage);
+        closeConfirmation();
+    }
+</script>
+
+</body>
+</html>

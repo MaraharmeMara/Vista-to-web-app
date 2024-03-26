@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <style>
+        .item:hover {
+            background-color: bisque;
+        }
+
+        .item {
+            cursor: pointer;
+        }
+
+        .submenu,
+        .sidemenu {
+            position: absolute;
+            transition: left 0.6s;
+            left: 10px;
+        }
+
+        .submenu {
+            left: -200px;
+        }
+
+        .back:hover {
+            background-color: aquamarine;
+        }
+
+        .back {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidemenu">
+        <header class="sidemenu_header">header</header>
+        <div class="items">
+            <div class="item item1" data-item-id="1">item 1</div>
+            <div class="item item2" data-item-id="2">item 2</div>
+            <div class="item item3" data-item-id="3">item 3</div>
+        </div>
+    </div>
+
+    <div class="submenu item1 dnone" data-submenu-id="1">
+        <div class="back">back</div>
+        <header class="submenu_header">submenu 1 header</header>
+        <div class="item">submenu 1 item 1</div>
+        <div class="item">submenu 1 item 2</div>
+        <div class="item">submenu 1 item 3</div>
+    </div>
+
+    <div class="submenu item2 dnone" data-submenu-id="2">
+        <div class="back">back</div>
+        <header class="submenu_header">submenu 2 header</header>
+        <div class="item">submenu 2 item 1</div>
+        <div class="item">submenu 2 item 2</div>
+        <div class="item">submenu 2 item 3</div>
+    </div>
+</div>
+
+<script>
+    const submenus = document.querySelectorAll(".submenu");
+    const sidemenu = document.querySelector(".sidemenu");
+    const wrapper = document.querySelector(".wrapper");
+
+    function menuClick(e) {
+        console.log(`menu click: ${e.target.classList}`);
+        console.log(`dataset ${e.target.dataset.itemId}`);
+
+        const submenu = document.querySelector(
+            `.submenu[data-submenu-id="${e.target.dataset.itemId}"]`
+        );
+        submenu.classList.remove("dnone");
+        submenu.style.left = "10px";
+        sidemenu.style.left = "-200px";
+    }
+
+    const items = document.querySelectorAll(".item");
+    items.forEach((i) => {
+        i.addEventListener("click", menuClick);
+    });
+
+    const backBtns = document.querySelectorAll(".back");
+    backBtns.forEach((i) => {
+        i.addEventListener("click", (e) => {
+            submenus.forEach((s) => {
+                s.style.left = "-200px";
+            });
+            sidemenu.style.left = "10px";
+        });
+    });
+</script>
+</body>
+</html>

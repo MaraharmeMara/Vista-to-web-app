@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <link
+            href="https://fonts.googleapis.com/css?family=Montserrat"
+            rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="https://use.typekit.net/ykl8jxy.css"/>
+
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <title>Panorama 360</title>
+
+    <!-- hotspots -->
+    <style>
+        .custom-hotspot {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-size: cover;
+        }
+
+        .custom-hotspot9 {
+            background-image: url("/assets/img/numbers/9.png");
+        }
+
+        .custom-hotspot38 {
+            background-image: url("/assets/img/numbers/38.png");
+        }
+
+        .custom-hotspot79 {
+            background-image: url("/assets/img/numbers/79.png");
+        }
+
+        .custom-hotspot38 {
+            background-image: url("/assets/img/numbers/38.png");
+        }
+
+        .custom-hotspot81 {
+            background-image: url("/assets/img/numbers/81.png");
+        }
+
+        .custom-hotspot33 {
+            background-image: url("/assets/img/numbers/33.png");
+        }
+
+        .custom-hotspot30 {
+            background-image: url("/assets/img/numbers/30.png");
+        }
+
+        .custom-hotspot27 {
+            background-image: url("/assets/img/numbers/27.png");
+        }
+
+        .custom-hotspot24 {
+            background-image: url("/assets/img/numbers/24.png");
+        }
+
+        .custom-hotspot23 {
+            background-image: url("/assets/img/numbers/23.png");
+        }
+
+        .custom-hotspot53 {
+            background-image: url("/assets/img/numbers/53.png");
+        }
+
+        .custom-hotspot46 {
+            background-image: url("/assets/img/numbers/46.png");
+        }
+
+        .custom-hotspot32 {
+            background-image: url("/assets/img/numbers/32.png");
+        }
+    </style>
+
+    <style>
+        @font-face {
+            font-family: NewHeroBold;
+            src: url("/assets/fonts/New Hero Bold.otf") format("opentype");
+        }
+
+        body {
+            font-family: new-hero, serif;
+            margin: 0;
+        }
+
+        .nav-link {
+            font-size: 1.8em;
+            font-family: NewHeroBold, new-hero, serif;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        button {
+            background-color: #0c1637;
+            color: white;
+            cursor: pointer;
+            text-align: left;
+            border-top-color: white;
+            border-top-width: 1px;
+            border-bottom-width: 1px;
+        }
+
+        button:hover {
+            background-color: #1e3587;
+        }
+
+        .btn-group-top .btn {
+            width: 60px;
+            height: 60px;
+            margin: 0 5px;
+            font-size: 24px;
+            border: none;
+            background: none;
+            padding: 5px;
+        }
+
+        hr {
+            height: 3px;
+            background-color: white;
+            opacity: 100%;
+        }
+
+        .navbar {
+            background-color: #7d9d47;
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+            height: 76px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #7caae6;
+            color: #0c1637;
+        }
+
+        .navbar-toggler {
+            border: 0;
+            height: 30px;
+            border-radius: 100px;
+            background-color: #1e3587;
+            font-size: medium;
+            color: #ffffff;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+        }
+
+        .navbar-toggler:hover {
+            background-color: #6fc5ff;
+            box-shadow: 0 0 20px #6fc5ff50;
+            transform: scale(1.1);
+        }
+
+        .navbar-toggler:active {
+            background-color: #3d94cf;
+            transition: all 0.25s;
+            -webkit-transition: all 0.25s;
+            box-shadow: none;
+            transform: scale(0.98);
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar a {
+                display: none;
+            }
+
+            .navbar-toggler {
+                display: block;
+            }
+        }
+
+        .nav {
+            border-top: #e9f2f4;
+            border-bottom: #e9f2f4;
+            border-width: 1px;
+        }
+
+        .search_box {
+            height: 30px;
+            display: flex;
+            max-width: 230px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            background: ivory;
+            border-radius: 50px;
+            position: relative;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .search_input {
+            border: none;
+            background: none;
+            outline: none;
+            font-size: 15px;
+            padding: 24px 46px 24px 26px;
+        }
+
+        .search_button {
+            color: white;
+            position: absolute;
+            right: -1px;
+            width: 42px;
+            height: 33px;
+            border-radius: 50%;
+            background-color: #1e3587;
+            border: 0;
+            display: inline-block;
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        }
+
+
+        .leftdrawer__top_logo > img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            padding-bottom: 20px;
+        }
+
+        .sidebar {
+            color: white;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .sidebar hr {
+            border-top: 1px solid white;
+            margin: 10px 0;
+        }
+
+        .sidebar :hover {
+            color: #7caae6;
+        }
+
+        .kartta {
+            margin-left: 20px;
+            width: 200px;
+        }
+
+        .leftdrawer {
+            padding-top: 76px;
+            width: 340px;
+            z-index: 2;
+            height: 100vh;
+            transition: transform 0.3s ease-in-out;
+            background-color: #0c1637;
+            opacity: 75%;
+        }
+
+        .sidemenu,
+        .submenu {
+            left: 0;
+            transition: left 0.6s;
+        }
+
+        .submenu {
+            position: absolute;
+            top: 90px;
+            left: -500px;
+            width: 292px;
+            height: 75%;
+            margin-bottom: 0;
+        }
+    </style>
+
+    <!-- card -->
+    <style>
+        .company-card__wrapper {
+            z-index: 11;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(105, 105, 105, 0.449);
+            top: 0;
+            vertical-align: middle;
+        }
+
+        .company-card {
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 3px 3px 8px 3px #888888;
+            background: white;
+            margin: auto;
+            top: 30%;
+            position: relative;
+        }
+
+        .company-card__buttons {
+            margin-bottom: -20px;
+        }
+
+        .company-card button {
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #0077ff;
+            background-color: #e0efff;
+            margin: 0 auto;
+            display: inline;
+            cursor: pointer;
+        }
+
+        .company-card_number {
+            height: 100%;
+        }
+
+        .company-card__name {
+            background-color: #7d9d47;
+            color: white;
+            height: 60px;
+            text-align: left;
+            font-size: 20px;
+        }
+
+        .company-card__logo .logo {
+            border-radius: 1px;
+            margin: 20px;
+            height: 100px;
+        }
+
+        .company-card__line {
+            background-color: #0c1637;
+            height: 50px;
+        }
+
+        .numbers-red {
+            background-color: red;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-family: sans-serif;
+            font-weight: lighter;
+            text-align: center;
+            padding-top: 3px;
+        }
+
+        .numbers-orange {
+            background-color: orange;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-family: sans-serif;
+            font-weight: lighter;
+            text-align: center;
+            padding-top: 3px;
+        }
+
+        ul {
+            list-style: none;
+            color: white;
+        }
+
+        .hidden-link {
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            float: right;
+            margin: 7px;
+            position: fixed;
+            top: 150px;
+            right: 10px;
+        }
+
+        .btn-group button {
+            display: flex;
+            background-color: #7d9d47;
+
+            height: 80px;
+            width: 80px;
+            border: none;
+            border-radius: 50%;
+            padding: 5px;
+            box-shadow: 0 2px 4px;
+
+        }
+
+        .btn-text {
+            font-size: 10px;
+            color: white;
+            text-align: center;
+            margin: 20px;
+            display: flex;
+            text-align-last: justify;
+        }
+
+        .btn-group button:not(:first-child) {
+            margin-top: 10px;
+        }
+
+        .btn-group button:hover {
+            background-color: #1e3587;
+        }
+
+
+        .sidebar__bottom_help > img {
+            width: 5em;
+        }
+
+    </style>
+</head>
+
+<body class="bg-light p-0 m-0">
+<div class="navbar" id="topMenu">
+    <img
+            src="/assets/img/logo/360 Palvelukartta logo punavalk 500px PNG.png"
+            alt="logo"
+            class="kartta"
+    />
+
+    <div class="btn-group-top" role="group" aria-label="Change Season">
+        <button class="navbar-toggler">
+            Palaa etusivulle
+        </button>
+
+        <button type="button" class="btn btn-secondary winter">
+            <img
+                    src="/assets/img/Ikonit/100w/Talvi v 100px PNG.png"
+                    alt="Winter Icon"
+                    class="img-fluid"
+            />
+        </button>
+        <button type="button" class="btn btn-secondary summer">
+            <img
+                    src="assets/img/Ikonit/100w/Kesä v 100px PNG.png"
+                    alt="Summer Icon"
+                    class="img-fluid"
+            />
+        </button>
+        <button type="button" class="btn btn-secondary autumn">
+            <img
+                    src="assets/img/Ikonit/100w/Syksy v 100px PNG.png"
+                    alt="Autumn Icon"
+                    class="img-fluid"
+            />
+        </button>
+    </div>
+
+
+    <div class="search_box">
+        <input class="search_input" type="text" name="" placeholder="Search something">
+        <button class="search_button" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                <g clip-path="url(#clip0_2_17)">
+                    <g filter="url(#filter0_d_2_17)">
+                        <path d="M23.7953 23.9182L19.0585 19.1814M19.0585 19.1814C19.8188 18.4211 20.4219 17.5185 20.8333 16.5251C21.2448 15.5318 21.4566 14.4671 21.4566 13.3919C21.4566 12.3167 21.2448 11.252 20.8333 10.2587C20.4219 9.2653 19.8188 8.36271 19.0585 7.60242C18.2982 6.84214 17.3956 6.23905 16.4022 5.82759C15.4089 5.41612 14.3442 5.20435 13.269 5.20435C12.1938 5.20435 11.1291 5.41612 10.1358 5.82759C9.1424 6.23905 8.23981 6.84214 7.47953 7.60242C5.94407 9.13789 5.08145 11.2204 5.08145 13.3919C5.08145 15.5634 5.94407 17.6459 7.47953 19.1814C9.01499 20.7168 11.0975 21.5794 13.269 21.5794C15.4405 21.5794 17.523 20.7168 19.0585 19.1814Z"
+                              stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                              shape-rendering="crispEdges"></path>
+                    </g>
+                </g>
+                <defs>
+                    <filter id="filter0_d_2_17" x="-0.418549" y="3.70435" width="29.7139" height="29.7139"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                       result="hardAlpha"></feColorMatrix>
+                        <feOffset dy="4"></feOffset>
+                        <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+                        <feComposite in2="hardAlpha" operator="out"></feComposite>
+                        <feColorMatrix type="matrix"
+                                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_17"></feBlend>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_17"
+                                 result="shape"></feBlend>
+                    </filter>
+                    <clipPath id="clip0_2_17">
+                        <rect width="28.0702" height="28.0702" fill="white"
+                              transform="translate(0.403503 0.526367)"></rect>
+                    </clipPath>
+                </defs>
+            </svg>
+        </button>
+    </div>
+
+    <a href="#" class="nav-link">Panorama</a>
+</div>
+
+<div class="leftdrawer container position-fixed px-0 d-flex flex-column">
+    <a href="#" class="text-white text-decoration-none fs-4 leftdrawer__top_logo"
+    ><img src="/assets/img/logo/yritt.png" alt="logo"
+        /></a>
+    <div class="overflow-auto sidebar__menu">
+        <div class="sidebar">
+            <ul
+                    class="nav nav-pills flex-column mb-auto position-relative sidemenu"
+            >
+                <button class="nav-item fs-6" data-item-id="1">
+                    Ilomantsin kunta
+                </button>
+                <button class="nav-item fs-6" data-item-id="2">
+                    Ilomantsin kylät
+                </button>
+                <button class="nav-item fs-6" data-item-id="3">Nähtävyydet</button>
+                <hr/>
+                <button class="nav-item fs-6" data-item-id="4">
+                    Ekumeeninen Ilomantsi
+                </button>
+                <button class="nav-item fs-6" data-item-id="5">
+                    Hyvinvointipalvelut
+                </button>
+                <button class="nav-item fs-6" data-item-id="6">
+                    Informaatio ja viestintä
+                </button>
+                <button class="nav-item fs-6" data-item-id="7">Kaupat</button>
+                <button class="nav-item fs-6" data-item-id="8">
+                    Korjaus ja huolto
+                </button>
+                <button class="nav-item fs-6" data-item-id="9">
+                    Kuljetuspalvelut
+                </button>
+                <button class="nav-item fs-6" data-item-id="10">
+                    Laki- ja tilitoimistopalvelut
+                </button>
+                <button class="nav-item fs-6" data-item-id="11">Majoitus</button>
+                <button class="nav-item fs-6" data-item-id="12">
+                    Ohjelmapalvelut
+                </button>
+                <button class="nav-item fs-6" data-item-id="13">
+                    Pankkipalvelut
+                </button>
+                <button class="nav-item fs-6" data-item-id="14">
+                    Rakentaminen
+                </button>
+                <button class="nav-item fs-6" data-item-id="15">
+                    Ravintolat ja kahvilat
+                </button>
+                <button class="nav-item fs-6" data-item-id="16">Sotatie</button>
+                <button class="nav-item fs-6" data-item-id="17">Tapahtumat</button>
+                <button class="nav-item fs-6" data-item-id="18">Teollisuus</button>
+                <button class="nav-item fs-6" data-item-id="19">
+                    Palveluyritykset
+                </button>
+                <button class="nav-item fs-6" data-item-id="20">
+                    Paikalliset virtuaaliympäristöt
+                </button>
+
+            </ul>
+        </div>
+
+        <!-- Ilomantsin kunta -->
+        <ul class="submenu" data-submenu-id="1">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li><span class="numbers-red">50</span>IIomantsin Kunta</li>
+            <li><span class="numbers-red">51</span> Liikuntahalli</li>
+            <li><span class="numbers-red">52</span> Uimahalli</li>
+            <li><span class="numbers-red">86</span> Kirjasto</li>
+        </ul>
+
+        <!-- Ilomanysin kylät -->
+        <ul class="submenu" data-submenu-id="2">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li>Kivilahti</li>
+            <li>Hattuvaara</li>
+            <li>Möhkö</li>
+            <li>Sonkaja</li>
+            <li>Tokrajärvi</li>
+        </ul>
+
+        <!-- Nähtävyydet -->
+        <ul class="submenu" data-submenu-id="3">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li>ILO!KARHU</li>
+            <li><span class="numbers-orange">109</span> Hattuvaaran tsasouna</li>
+            <li><span class="numbers-orange">108</span> Hattuvaaran uimaranta</li>
+            <li>
+                <span class="numbers-orange">71</span> Ilomantsin Nukke- ja
+                Nalletalo
+            </li>
+            <li><span class="numbers-orange">54</span> Kansallistalo</li>
+            <li>
+                <span class="numbers-orange">58</span> Katri Vala Kulttuurikeskus
+            </li>
+            <li>
+                <span class="numbers-orange">99</span> Kivilahden Nuorisoseurantalo
+            </li>
+            <li><span class="numbers-orange">101</span> Kivilahden uimaranta</li>
+            <li><span class="numbers-orange">100</span> Kivilahden veneranta</li>
+            <li><span class="numbers-orange">93</span> Luontopirtti Mesikkä</li>
+            <li><span class="numbers-orange">103</span> Lylykoski</li>
+            <li><span class="numbers-orange">110</span> Museotila Makkola</li>
+            <li><span class="numbers-orange">106</span> Möhkön Arboretum</li>
+            <li><span class="numbers-orange">44</span> Möhkön Ruuki</li>
+            <li><span class="numbers-orange">104</span>Petäjäkangas</li>
+            <li><span class="numbers-orange">94</span> Rajakenraalin maja</li>
+            <li><span class="numbers-orange">102</span> Rosvolahden kota</li>
+            <li><span class="numbers-orange">57</span> Runonlaulajan pirtti</li>
+            <li><span class="numbers-orange">90</span> Sonkajan kylätalo</li>
+            <li><span class="numbers-orange">98</span> Sonkajan tanssilava</li>
+            <li><span class="numbers-orange">92</span> Sonkajan uimaranta</li>
+            <li><span class="numbers-orange">111</span> Suomen itäisin piste</li>
+            <li><span class="numbers-orange">105</span> Tokrajärven uimaranta</li>
+            <li>Suomirokkia-näyttely</li>
+            <li><img src="" alt=""/>Öykkösenvaara</li>
+        </ul>
+
+        <!-- Ekuumeeninen Ilomantsi -->
+        <ul class="submenu" data-submenu-id="4">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li>
+                <span class="numbers-orange">95</span> Evankelis-luterilainen kirkko
+            </li>
+            <li>Evankelis-luterilainen siunauskappeli</li>
+            <li>
+                <span class="numbers-orange">96</span> Pyhän Profeetta Elian kirkko
+            </li>
+        </ul>
+
+        <!-- Hyvinvointipalvelut -->
+        <ul class="submenu" data-submenu-id="5">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li><span class="numbers-red">48</span> ET-hieronta</li>
+            <li><span class="numbers-red">45</span> Fysio Voimala Oy</li>
+            <li>
+                <span class="numbers-red">66</span> Hoiva ja Huolenpito Kotipiha Oy
+            </li>
+            <li><span class="numbers-red">5</span> Ilomantsin Apteekki</li>
+            <li><span class="numbers-red">11</span> Ilonakonti</li>
+            <li>
+                <span class="numbers-red">46</span> Jalkojenhoito ElämysMantsi
+            </li>
+            <li><span class="numbers-red">87</span> Möyhäyttäjä</li>
+        </ul>
+
+        <!-- Informaatio ja viestintä -->
+        <ul class="submenu" data-submenu-id="6">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li><span class="numbers-red">38</span> Ilonet Oy</li>
+            <li>
+                <span class="numbers-red">53</span> Pogostan Tietoverkkopalvelut Oy
+            </li>
+            <li><span class="numbers-red">62</span> Pogostan Sanomat</li>
+            <li><span class="numbers-red">49</span> STC Tuotanto Oy</li>
+            <li><span class="numbers-red">85</span> Tähkä-Design</li>
+        </ul>
+
+        <!-- Kaupat -->
+        <ul class="submenu" data-submenu-id="7">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li><span class="numbers-red">14</span> Hermannin Viinitila</li>
+            <li><span class="numbers-red">5</span> Ilomantsin Apteekki</li>
+            <li><span class="numbers-red">89</span> Ilomantsin Optiikka</li>
+            <li><span class="numbers-red">26</span> Ilomantsin 4H-yhdistys ry</li>
+            <li><span class="numbers-red">12</span> Katariinan Luomutila</li>
+            <li><span class="numbers-red">30</span> Kesport Ilomantsi</li>
+            <li><span class="numbers-red">31</span> K-Market Ilomantsi</li>
+            <li><span class="numbers-red">29</span> Koitadesign</li>
+            <li><span class="numbers-red">41</span> Mantsin Kehys Oy</li>
+            <li><span class="numbers-red">24</span> Pogostan Kaluste</li>
+            <li><span class="numbers-red">70</span> Pogostan Kirppis</li>
+            <li><span class="numbers-red">64</span> MJAN-Palvelut</li>
+            <li><span class="numbers-red">34</span> Pogostan Rauta Oy</li>
+            <li>
+                <span class="numbers-red">60</span> Salakan Puutarha ja
+                hautauspalvelu
+            </li>
+            <li><span class="numbers-red">80</span> Ylisoutajan Jäätelökioski</li>
+        </ul>
+
+        <!-- Korjaus ja huolto -->
+        <ul class="submenu" data-submenu-id="8">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li>
+                <span class="numbers-red">42</span> AD-Autokorjaamo S. Martiskainen
+                Oy
+            </li>
+            <li><span class="numbers-red">78</span> Kentsun Autopalvelut</li>
+            <li><span class="numbers-red">76</span> Pienkonekorjaamo</li>
+            <li>
+                <span class="numbers-red">77</span> Kiinteistöhuolto Martiskainen Oy
+            </li>
+            <li>
+                <span class="numbers-red">39</span> Kone ja Autotarvike Tanskanen Oy
+            </li>
+            <li><span class="numbers-red">40</span> Kuuksenvaaran Konepalvelu</li>
+            <li><span class="numbers-red">64</span> MJAN-Palvelut</li>
+            <li><span class="numbers-red">22</span> Raskaan kaluston palvelut</li>
+        </ul>
+
+        <!-- Kuljetuspalvelut -->
+        <ul class="submenu" data-submenu-id="9">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li>
+                <span class="numbers-red">56</span> Kaivuu ja Kuljetus Kari
+                Kuivalainen Oy
+            </li>
+            <li><span class="numbers-red">88</span> Konepalvelu Sami Hassinen</li>
+            <li><span class="numbers-red">40</span> Kuuksenvaaran Konepalvelu</li>
+            <li>
+                <span class="numbers-red">36</span> Metsä- ja Maansiirto Kastinen Oy
+            </li>
+        </ul>
+
+        <!-- Laki- ja tilitoimistopalvelut -->
+        <ul class="submenu" data-submenu-id="10">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li>
+                <span class="numbers-red">81</span> Asianajotoimisto Teräskulma
+            </li>
+            <li>
+                <span class="numbers-red">32</span> Itä-Suomen Tili- ja isännöinti
+                Oy
+            </li>
+            <li><span class="numbers-red">79</span> TL Toimistopalvelut Oy</li>
+        </ul>
+
+        <!-- Majoitus -->
+        <ul class="submenu" data-submenu-id="11">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li><span class="numbers-red">18</span> Anssilan Maatila</li>
+            <li><span class="numbers-red">13</span> B&B Kuuksenkaari</li>
+            <li><span class="numbers-red">61</span> KoiHu Adventures</li>
+            <li><span class="numbers-red">59</span> Koveron Majatalo</li>
+            <li><span class="numbers-red">68</span> Loma-asunto Myllymatti</li>
+            <li><span class="numbers-red">43</span> Mantan Majatalo</li>
+            <li><span class="numbers-red">84</span> Möhkön Rajakartano</li>
+            <li><span class="numbers-red">19</span> Petkeljärvi Center</li>
+            <li><span class="numbers-red">23</span> Hotelli Pogostan Hovi</li>
+            <li><span class="numbers-red">20</span> Puustilan maisematila</li>
+        </ul>
+
+        <!-- Ohjelmapalvelut -->
+        <ul class="submenu" data-submenu-id="12">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li><span class="numbers-red">28</span> Elämysmantsi Oy</li>
+            <li><span class="numbers-red">61</span> KoiHu Adventures</li>
+            <li><span class="numbers-red">83</span> Mantan Luontopalvelu</li>
+            <li><span class="numbers-red">82</span> Teatteri Möhkö</li>
+        </ul>
+
+        <!-- Pankkipalvelut -->
+        <ul class="submenu" data-submenu-id="13">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li><span class="numbers-red">3</span> OP Vaara-Karjala</li>
+        </ul>
+
+        <!-- Rakentaminen -->
+        <ul class="submenu" data-submenu-id="14">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li><span class="numbers-red">25</span> Ark-konttori I&k</li>
+            <li>
+                <span class="numbers-red">73</span> Ilomantsin Betonituote Kautto Oy
+            </li>
+            <li>
+                <span class="numbers-red">32</span> Itä-Suomen Tili- ja Isännöinti
+                Oy
+            </li>
+            <li>
+                <span class="numbers-red">56</span> Kaivuu ja kuljetus Kari
+                Kuivalainen Oy
+            </li>
+            <li><span class="numbers-red">17</span> Karjalan Rakentajat Oy</li>
+            <li><span class="numbers-red">88</span> Konepalvelu Sami Hassinen</li>
+            <li><span class="numbers-red">40</span> Kuuksenvaaran Konepalvelu</li>
+            <li>
+                <span class="numbers-red">67</span> Mantsin rakennuspalvelut Oy
+            </li>
+            <li><span class="numbers-red">34</span> Pogostan Rauta Oy</li>
+            <li><span class="numbers-red">33</span> Räty Oy</li>
+        </ul>
+
+        <!-- Ravintolat ja kahvilat -->
+        <ul class="submenu" data-submenu-id="15">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li><span class="numbers-red">15</span> Hermannin Viinitorni</li>
+            <li><span class="numbers-red">27</span> Ilomantsin Leipomo</li>
+            <li><span class="numbers-red">26</span> Ilomantsin 4H-yhdistys ry</li>
+            <li><span class="numbers-red">91</span> Kilihakka</li>
+            <li><span class="numbers-red">4</span> Kotimäen Pitotupa</li>
+            <li><span class="numbers-red">43</span> Mantan Majatalo</li>
+            <li><span class="numbers-red">19</span> Petkeljärvi Center</li>
+            <li><span class="numbers-red">7</span> Puoti & Sumppila</li>
+            <li><span class="numbers-red">97</span> Rntakahvila Ilonpisara</li>
+            <li><span class="numbers-red">10</span> Ravintola Parppeinpirtti</li>
+            <li>
+                <span class="numbers-red">21</span> Savottakahvila Möhkön Manta
+            </li>
+            <li><span class="numbers-red">107</span>Taistelijan Talo</li>
+            <li><span class="numbers-red">9</span> Taikoherkut</li>
+        </ul>
+
+        <!-- Sotatie -->
+        <ul class="submenu" data-submenu-id="16">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li>Ilomantsin Sotatie verkkosivusto</li>
+            <li>Rajakenraalin majan virtuaalikierros</li>
+            <li>Taistelijan talon virtuaalikierros</li>
+            <li>Öykkösenvaaran virtuaalikierros</li>
+        </ul>
+
+        <!-- Tapahtumat -->
+        <ul class="submenu" data-submenu-id="17">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li>Karelia-Soutu</li>
+            <li>Karhuareena</li>
+            <li>Karhufestivaali</li>
+            <li>Pogostan Hiihto</li>
+        </ul>
+
+        <!-- Teollisuus -->
+        <ul class="submenu" data-submenu-id="18">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li><span class="numbers-red">45</span>35 Endomines Finland Oy</li>
+            <li><span class="numbers-red">16</span>16 Havel Oy</li>
+            <li><span class="numbers-red">37</span>Ilomantsin Kivituote</li>
+        </ul>
+
+        <!-- Palveluyritykset -->
+        <ul class="submenu" data-submenu-id="19">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li><span class="numbers-red">63</span>63 Mantsin Moniapu</li>
+            <li><span class="numbers-red">69</span>69 Nokipalvelu Turunen</li>
+        </ul>
+
+        <!-- Paikalliset virtuaaliympäristöt -->
+        <ul class="submenu" data-submenu-id="20">
+            <button class="submenu_back-btn">Takaisin</button>
+            <li>
+                <a
+                        href="https://stctuotanto.fi/360vr/ilomantsin_leipomo-konditoria/"
+                        target="_blank"
+                        class="hidden-link"
+                >Ilomantsin Leipomo</a
+                >
+            </li>
+            <li>
+                <a
+                        href="https://stctuotanto.fi/360vr/Ilonakoti/"
+                        target="_blank"
+                        class="hidden-link"
+                >Ilonakoti</a
+                >
+            </li>
+            <li>
+                <a
+                        href="https://stctuotanto.fi/360vr/PetkeljarviCenter/"
+                        target="_blank"
+                        class="hidden-link"
+                >Petkeljärvi Center</a
+                >
+            </li>
+            <li>
+                <a
+                        href="https://stctuotanto.fi/360vr/Rajakenraalinmaja/"
+                        target="_blank"
+                        class="hidden-link"
+                >Rajakenraalin maja</a
+                >
+            </li>
+            <li>
+                <a
+                        href="https://my.matterport.com/show/?m=NbXFQvKYPGR"
+                        target="_blank"
+                        class="hidden-link"
+                >Ravintola Parppeinpirtti</a
+                >
+            </li>
+            <li>
+                <a
+                        href="https://stctuotanto.fi/360vr/Taistelijantalo/"
+                        target="_blank"
+                        class="hidden-link"
+                >Taistelijan Talo</a
+                >
+            </li>
+            <li>
+                <a
+                        href="https://stctuotanto.fi/360vr/Oykkosenvaara/"
+                        target="_blank"
+                        class="hidden-link"
+                >Öykkösenvara</a
+                >
+            </li>
+            <li>
+                <a
+                        href="https://360palvelukartta.fi/kartat/ilomantsi/#media-name=Hermannin1-2&yaw=-25.03&pitch=-2.87&fov=110.00&son=hermanni%20ulos%20kes%C3%A4"
+                        target="_blank"
+                        class="hidden-link"
+                >Hermannin Viinimyymälä</a
+                >
+            </li>
+        </ul>
+    </div>
+    <button class="sidebar__bottom_help">
+        <img
+                src="/assets/img/logo/ohje.png"
+                alt="ohje"
+        />
+    </button>
+    <!--    <div class="align-self-center">-->
+    <!--        <button-->
+    <!--                type="button"-->
+    <!--                class="btn btn-secondary"-->
+    <!--                onclick="toggleDrawer()"-->
+    <!--        >-->
+    <!--            <svg-->
+    <!--                    xmlns="http://www.w3.org/2000/svg"-->
+    <!--                    width="16"-->
+    <!--                    height="16"-->
+    <!--                    fill="currentColor"-->
+    <!--                    class="bi bi-arrow-left-circle-fill"-->
+    <!--                    viewBox="0 0 16 16"-->
+    <!--            >-->
+    <!--                <path-->
+    <!--                        d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"-->
+    <!--                />-->
+    <!--            </svg>-->
+    <!--        </button>-->
+    <!--    </div>-->
+</div>
+
+<div id="panorama" class="container-fluid p-0" style="height: 100vh"></div>
+
+<div class="company-card__wrapper d-none">
+    <div class="company-card" id="card">
+        <div class="company-card__name">
+            <img
+                    class="company-card_number"
+                    src="assets/img/numbers/10.png"
+                    alt="N"
+            />
+            Company name
+            <button class="company-card_close" onclick="toggleCard()">X</button>
+        </div>
+        <div class="company-card__logo">
+            <img
+                    class="logo"
+                    src="assets/img/companies logos/Ilomantsin 360 Palvelukartta logo kuvalla musta 500px PNG.png"
+                    alt="logo"
+            />
+        </div>
+        <div class="company-card__details"></div>
+        <div class="company-card__buttons btn-group">
+            <button>site</button>
+            <button>map</button>
+            <button>facebook</button>
+            <button>instagram</button>
+        </div>
+        <div class="company-card__line"></div>
+    </div>
+</div>
+
+<div class="btn-group">
+    <button class="btn-text">Keskusta*</button>
+    <button class="btn-text">Kalevalantie*</button>
+    <button class="btn-text">Pogostantie*</button>
+</div>
+
+<script
+        src="https://kit.fontawesome.com/8b171976ae.js"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+></script>
+<script>
+    // submenu
+    const sidemenu = document.querySelector(".sidemenu");
+    const sidemenuBtns = document.querySelectorAll(".sidemenu>.nav-item");
+    const submenuBackBtns = document.querySelectorAll(".submenu_back-btn");
+
+    function sidemenuClick(e) {
+        console.log("sidemenu click");
+        const submenu = document.querySelector(
+            `.submenu[data-submenu-id="${e.target.dataset.itemId}"]`
+        );
+        submenu.style.left = "0px";
+        sidemenu.style.left = "-500px";
+    }
+
+    sidemenuBtns.forEach((btn) => {
+        btn.addEventListener("click", sidemenuClick);
+    });
+    submenuBackBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            const submenus = document.querySelectorAll(".submenu");
+            submenus.forEach((sub) => {
+                sub.style.left = "-500px";
+            });
+            sidemenu.style.left = "0px";
+        });
+    });
+
+    // submenu
+    // const sidebar = document.querySelector(".sidebar");
+    // const sidebarClose = document.querySelector("#sidebar-close");
+    // const menu = document.querySelector("menu-content");
+    // const menuItems = document.querySelectorAll(".submenu-item");
+    // sidebarClose.addEventListener("click", () => sidebar.classList.toggle("close"));
+    // menuItems.forEach((item, index) => {})
+
+    // close open card
+    const toggleCard = (e, b) => {
+        try {
+            e.preventDefault();
+        } catch {
+        }
+        console.log(`toggle card: ${e} ${b}`);
+
+        const companyCard = document.querySelector(".company-card__wrapper");
+        companyCard.classList.toggle("d-none");
+    };
+
+    //funcs
+    let drawerOpened = true;
+
+    function toggleDrawer() {
+        console.log("toggle drawer");
+        const drawer = document.querySelector(".leftdrawer");
+        if (drawerOpened) {
+            drawer.style.transform = "translateX(-88%)";
+            drawerOpened = false;
+        } else {
+            drawer.style.transform = "none";
+            drawerOpened = true;
+        }
+    }
+
+    //panorama
+    document.querySelector(".winter").addEventListener("click", setSeason);
+    document.querySelector(".summer").addEventListener("click", setSeason);
+    document.querySelector(".autumn").addEventListener("click", setSeason);
+    const winterImg = "<%= winter %>";
+    const summerImg = "<%= summer %>";
+    const autumnImg = "<%= autumn %>";
+
+    const winter = "winter";
+    const summer = "summer";
+    const autumn = "autumn";
+
+    const hostSpots = [
+        {
+            pitch: -24.346705348960988,
+            yaw: 10.740680010482265,
+            type: "info",
+            text: "9 Taukoherkut",
+            cssClass: "custom-hotspot custom-hotspot9",
+            clickHandlerFunc: toggleCard,
+        },
+        {
+            pitch: -23.08376959211073,
+            yaw: 77.88745203393269,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot81",
+            text: "81 Asianajotoimisto Teräskulma",
+            URL: "https://www.teraskulma.com/",
+            clickHandlerFunc: toggleCard,
+        },
+        {
+            pitch: -27.808675174086307,
+            yaw: 79.99124092953352,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot38",
+            text: "38 Ilonet OY",
+            URL: "https://ilonet.fi/",
+            clickHandlerFunc: toggleCard,
+        },
+        {
+            pitch: -32.80298644988752,
+            yaw: 72.80781889140339,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot79",
+            text: "79 TL Toimistopalvelut OY",
+            URL: "https://tltoimistopalvelut.fi/",
+            clickHandlerFunc: toggleCard,
+        },
+        {
+            pitch: -9.085970180924628,
+            yaw: 99.79569495106281,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot30",
+            text: "30 Kesport Ilomantsi",
+            URL: "https://www.kesportilomantsi.fi/",
+            clickHandlerFunc: toggleCard,
+        },
+        {
+            pitch: -14.588997901657562,
+            yaw: 92.90880262658129,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot33",
+            text: "33 Putkiasennus Räty OY",
+            URL: "https://ratyoy.fi/",
+            clickHandlerFunc: toggleCard,
+        },
+        {
+            pitch: -25.230788410218658,
+            yaw: 130.44704534415294,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot32",
+            text: "32 Itä-Suomen Tili- ja Isännöinti OY",
+            URL: "https://www.itasuomentili.fi/",
+            clickHandlerFunc: toggleCard,
+        },
+        {
+            pitch: -22.452025615956,
+            yaw: 128.91086208493212,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot46",
+            text: "46 Jalkojenhoito Elämys Mantsi",
+            URL: "",
+            clickHandlerFunc: toggleCard,
+        },
+        {
+            pitch: -20.3212368475782,
+            yaw: 126.58969132103539,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot53",
+            text: "53 Pogostan Tietoverkkopalvelut",
+            URL: "https://www.ptvp.fi/#/",
+            clickHandlerFunc: toggleCard,
+        },
+        {
+            pitch: -13.818091286612516,
+            yaw: 119.4560435523091,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot24",
+            text: "24 Pogostan Kaluste",
+            URL: "https://pogostankaluste.fi/",
+            clickHandlerFunc: toggleCard,
+        },
+        {
+            pitch: -16.039824021499946,
+            yaw: 121.63494731899884,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot23",
+            text: "23 Pogostan Hovi",
+            URL: "https://www.hotellipogostanhovi.fi/",
+            clickHandlerFunc: toggleCard,
+        },
+        {
+            pitch: -10.213103913027568,
+            yaw: 116.7766689727745,
+            type: "info",
+            cssClass: "custom-hotspot custom-hotspot27",
+            text: "27 Ilomantsin Leipomo",
+            URL: "https://ilomantsinleipomo.fi/",
+            clickHandlerFunc: toggleCard,
+        },
+    ];
+
+    const tour = pannellum.viewer("panorama", {
+        showFullscreenCtrl: true,
+        showZoomCtrl: false,
+        autoRotate: -1,
+        default: {
+            firstScene: summer,
+        },
+        scenes: {
+            winter: {
+                type: "equirectangular",
+                autoLoad: true,
+                autoRotate: 0,
+                hotSpots: hostSpots,
+                panorama: winterImg,
+            },
+            summer: {
+                type: "equirectangular",
+                autoLoad: true,
+                autoRotate: 0,
+                hotSpots: hostSpots,
+                panorama: "/assets/img/panorama/Keskusta kesä.jpg",
+            },
+            autumn: {
+                type: "equirectangular",
+                autoLoad: true,
+                autoRotate: 0,
+                hotSpots: hostSpots,
+                panorama: autumnImg,
+            },
+        },
+    });
+
+    function setSeason(e) {
+        console.log("set season: ", e.currentTarget.classList);
+        console.log(tour);
+
+        if (e.currentTarget.classList.contains("summer")) {
+            tour.loadScene(summer);
+            return;
+        }
+        if (e.currentTarget.classList.contains("winter")) {
+            tour.loadScene(winter);
+            return;
+        }
+        if (e.currentTarget.classList.contains("autumn")) {
+            tour.loadScene(autumn);
+            return;
+        }
+    }
+</script>
+</body>
+</html>
